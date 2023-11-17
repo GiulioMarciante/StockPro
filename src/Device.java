@@ -21,4 +21,18 @@ public class Device {
         this.purchasePrice=purchasePrice;
         this.salesPrice=salesPrice;
     }
+
+    @Override
+    public String toString() {
+        return "Device{" +
+                "type=" + type +
+                ", id=" + id +
+                ", brand='" + brand + '\'' +
+                ", model='" + model + '\'' +
+                ", displayDimension=" + displayDimension +
+                ", memoryDimension=" + memoryDimension +
+                ", purchasePrice=" + purchasePrice +
+                ", salesPrice=" + salesPrice +
+                '}';
+    }
 }

@@ -1,4 +1,6 @@
 public class DemoItems {
+
+
     Device device1 = new Device(TypesDevice.SMARTPHONE,1,"Samsung","S23",6.5, 128.0,400.0,899.99);
     Device device2 = new Device(TypesDevice.SMARTPHONE,2,"Apple","Iphone 14",6.5, 256.0,500.0,999.99);
     Device device3 = new Device(TypesDevice.SMARTPHONE,3,"Samsung","Z Flip 5",6.5, 128.0,400.0,899.99);
