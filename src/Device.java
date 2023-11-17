@@ -1,24 +1,38 @@
 public class Device {
     TypesDevice type;
-    int Id;
-    String Productor;
-    String Model;
+    int id;
+    String brand;
+    String model;
 //    String Description;
-    Double DisplayDimension;
-    Double MemoryDimension;
-    Double PurchasePrice;
-    Double SalesPrice;
+    Double displayDimension;
+    Double memoryDimension;
+    Double purchasePrice;
+    Double salesPrice;
 
 
-    public Device(TypesDevice type, int Id, String Productor, String Model, Double DisplayDimension, Double MemoryDimension, Double PurchasePrice, Double SalesPrice ) {
+    public Device(TypesDevice type, int id, String brand, String model, Double displayDimension, Double memoryDimension, Double purchasePrice, Double salesPrice ) {
         this.type=type;
-        this.Id=Id;
-        this.Productor=Productor;
-        this.Model=Model;
+        this.id=id;
+        this.brand=brand;
+        this.model=model;
 //        this.Description=Description;
-        this.DisplayDimension=DisplayDimension;
-        this.MemoryDimension=MemoryDimension;
-        this.PurchasePrice=PurchasePrice;
-        this.SalesPrice=SalesPrice;
+        this.displayDimension=displayDimension;
+        this.memoryDimension=memoryDimension;
+        this.purchasePrice=purchasePrice;
+        this.salesPrice=salesPrice;
+    }
+
+    @Override
+    public String toString() {
+        return "Device{" +
+                "type=" + type +
+                ", id=" + id +
+                ", brand='" + brand + '\'' +
+                ", model='" + model + '\'' +
+                ", displayDimension=" + displayDimension +
+                ", memoryDimension=" + memoryDimension +
+                ", purchasePrice=" + purchasePrice +
+                ", salesPrice=" + salesPrice +
+                '}';
     }
 }
