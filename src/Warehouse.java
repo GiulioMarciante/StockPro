@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
 public class Warehouse{
+
     DemoItems demoItems = new DemoItems();
 
     static ArrayList<Device> deviceList = new ArrayList<>();
@@ -23,5 +24,3 @@ public class Warehouse{
             System.out.println(device);
         }
     }
-
-}
