@@ -1,11 +1,8 @@
 import java.util.ArrayList;
 
-public class Warehouse{
-
+public class Warehouse {
     DemoItems demoItems = new DemoItems();
-
     static ArrayList<Device> deviceList = new ArrayList<>();
-
     public Warehouse() {
         deviceList.add(demoItems.device1);
         deviceList.add(demoItems.device2);
@@ -17,10 +14,10 @@ public class Warehouse{
         deviceList.add(demoItems.device8);
         deviceList.add(demoItems.device9);
     }
-
     public static void main(String[] args) {
         Warehouse warehouse = new Warehouse();
-        for (Device device : deviceList){
+        for (Device device : deviceList) {
             System.out.println(device);
         }
     }
+}
