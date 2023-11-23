@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Warehouse {
-    DemoItems demoItems = new DemoItems();
+    static DemoItems demoItems = new DemoItems();
     static ArrayList<Device> deviceList = new ArrayList<>();
 
     public Warehouse() {
@@ -18,7 +18,7 @@ public class Warehouse {
 
 
     public static void listaArticoli() {
-        if (deviceList.size() > 1) {
+        if (!deviceList.isEmpty()) {
             for (Device device : deviceList) {
                 System.out.println(device);
             }
@@ -29,44 +29,48 @@ public class Warehouse {
     }
 
     public static void searchDeviceType(TypesDevice type) {
+        boolean dispositivoTrovato = false;
 
         for (Device device : deviceList) {
-            if (device.getType().equals(type)) {
-                System.out.println(device);
-            } else if (device.getType().equals(type)) {
-                System.out.println(device);
-            } else if (device.getType().equals(type)) {
-                System.out.println(device);
+            switch (type) {
+                case TABLET:
+                case NOTEBOOK:
+                case SMARTPHONE:
+                    if (device.getType().equals(type)) {
+                        System.out.println(device);
+                        dispositivoTrovato = true;
+                    }
+                    break;
+                default:
+                    break;
             }
+        }
+        if (!dispositivoTrovato) {
+            System.out.println("Non ci sono prodotti con queste caratteristiche al momento in magazzino");
         }
     }
 
     public static void searchDeviceBrand(String brand) {
+        boolean dispositivoTrovato = false;
         for (Device device : deviceList) {
-            if (device.getBrand().equals(brand)) {
-                System.out.println(device);
-            } else if (device.getBrand().equals(brand)) {
-                System.out.println(device);
-            } else if (device.getBrand().equals(brand)) {
-                System.out.println(device);
+            switch (brand) {
+                case "Apple":
+                case "Samsung":
+                case "Lenovo":
+                case "Motorola":
+                case "HP":
+                case "MSI":
+                    if (device.getBrand().equals(brand)) {
+                        System.out.println(device);
+                        dispositivoTrovato = true;
+                    }
+                    break;
+                default:
+                    break;
             }
         }
-    }
-
-    public static void searchDeviceModel(String model) {
-        for (Device device : deviceList) {
-            if (device.getModel().equals(model)) {
-                System.out.println(device);
-            } else if (device.getModel().equals(model)) {
-                System.out.println(device);
-            } else if (device.getModel().equals(model)) {
-                System.out.println(device);
-            }
+        if (!dispositivoTrovato) {
+            System.out.println("Non ci sono prodotti con queste caratteristiche al momento in magazzino");
         }
-
-    }
-
-    public static void main(String[] args) {
-        Warehouse warehouse = new Warehouse();
     }
 }
