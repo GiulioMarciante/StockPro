@@ -36,4 +36,68 @@ public class Device {
                 ", salesPrice=" + salesPrice +
                 '}';
     }
+
+    public TypesDevice getType() {
+        return type;
+    }
+
+    public void setType(TypesDevice type) {
+        this.type = type;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public Double getDisplayDimension() {
+        return displayDimension;
+    }
+
+    public void setDisplayDimension(Double displayDimension) {
+        this.displayDimension = displayDimension;
+    }
+
+    public Double getMemoryDimension() {
+        return memoryDimension;
+    }
+
+    public void setMemoryDimension(Double memoryDimension) {
+        this.memoryDimension = memoryDimension;
+    }
+
+    public Double getPurchasePrice() {
+        return purchasePrice;
+    }
+
+    public void setPurchasePrice(Double purchasePrice) {
+        this.purchasePrice = purchasePrice;
+    }
+
+    public Double getSalesPrice() {
+        return salesPrice;
+    }
+
+    public void setSalesPrice(Double salesPrice) {
+        this.salesPrice = salesPrice;
+    }
 }
