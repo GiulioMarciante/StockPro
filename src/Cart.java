@@ -1,5 +1,2 @@
-public class Cart{
-
-
-
-    }
+public class Cart {
+}
