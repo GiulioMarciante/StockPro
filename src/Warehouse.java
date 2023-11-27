@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class Warehouse {
     static DemoItems demoItems = new DemoItems();
@@ -72,5 +74,17 @@ public class Warehouse {
         if (!dispositivoTrovato) {
             System.out.println("Non ci sono prodotti con queste caratteristiche al momento in magazzino");
         }
+    }
+    public static List<Device> searchDeviceModel(String model){
+        List<Device> searchModelResult = new ArrayList<>();
+        for(Device device : deviceList){
+            if(device.getModel().equals(model)){
+                searchModelResult.add(device);
+            }
+        }
+        if(searchModelResult.isEmpty()){
+            System.out.println("Non ci sono prodotti con queste caratteristiche al momento in magazzino");
+        }
+        return searchModelResult;
     }
 }
