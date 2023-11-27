@@ -32,7 +32,6 @@ public class Device {
                 ", model='" + model + '\'' +
                 ", displayDimension=" + displayDimension +
                 ", memoryDimension=" + memoryDimension +
-                ", purchasePrice=" + purchasePrice +
                 ", salesPrice=" + salesPrice +
                 '}';
     }

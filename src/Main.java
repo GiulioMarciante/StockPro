@@ -1,10 +1,11 @@
 public class Main {
     public static void main(String[] args) {
         Warehouse warehouse = new Warehouse();
-        Warehouse.listaArticoli();
+        //Warehouse.listaArticoli();
 
-        //Warehouse.searchDeviceBrand("HP");
+        //Warehouse.searchDeviceBrand("Apple");
         //Warehouse.searchDeviceType(TypesDevice.NOTEBOOK);
-        //System.out.println(Warehouse.searchDeviceModel("Ipdhone 14"));
+        //Warehouse.searchDeviceModel("Iphone 14");
+        Warehouse.calculateAverage("NOTEBOOK");
     }
 }
