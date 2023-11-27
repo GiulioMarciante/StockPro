@@ -3,9 +3,9 @@ public class Main {
         Warehouse warehouse = new Warehouse();
         //Warehouse.listaArticoli();
 
-        //Warehouse.searchDeviceBrand("Apple");
+        //Warehouse.searchDeviceBrand("HP");
         //Warehouse.searchDeviceType(TypesDevice.NOTEBOOK);
-        //Warehouse.searchDeviceModel("Iphone 14");
-        Warehouse.calculateAverage("NOTEBOOK");
+        //System.out.println(Warehouse.searchDeviceModel("Ipdhone 14"));
+        Warehouse.calculateAverage("smartphone");
     }
 }

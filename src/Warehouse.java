@@ -8,6 +8,7 @@ public class Warehouse {
     static DemoItems demoItems = new DemoItems();
     static ArrayList<Device> deviceList = new ArrayList<>();
 
+
     public Warehouse() {
         deviceList.add(demoItems.device1);
         deviceList.add(demoItems.device2);
@@ -99,22 +100,34 @@ public class Warehouse {
     }*/
 
     public static void calculateAverage(String type){
-        if(type.equals(TypesDevice.NOTEBOOK)||type.equals(TypesDevice.SMARTPHONE)||type.equals(TypesDevice.TABLET)){
-            List<Device> typePrices = new ArrayList<>();
-            double total = 0.0;
-            for(Device device : deviceList){
-                if(device.getType().equals(type)){
+        try{
+            TypesDevice.valueOf(type.toUpperCase());
+        } catch (IllegalArgumentException e) {
+            System.out.println("Tipo non valido: " + type);
+            return;
+        }
+
+        List<Device> typePrices = new ArrayList<>();
+        double total = 0.0;
+
+
+        for(Device device : deviceList){
+            if(device.getType().name().equals(type.toUpperCase())){
                     typePrices.add(device);
                     total += device.getPurchasePrice();
-                }
             }
+        }
             if (!typePrices.isEmpty()) {
                 double average = total / typePrices.size();
-                System.out.println("La media dei prezzi per " + type + " è: " + average);
+                System.out.println("La media dei prezzi d'acquisto per " + type.toUpperCase() + " è: " + average);
+                System.out.println("Hai ricercato i seguenti dispositivi: ");
+
+                for (Device device : typePrices) {
+                    System.out.println(device);
+                }
+
             } else {
-                System.out.println("Non ci sono dispositivi del tipo " + type);
+                System.out.println("Non ci sono dispositivi del tipo " + type.toUpperCase());
             }
         }
     }
-
-}
