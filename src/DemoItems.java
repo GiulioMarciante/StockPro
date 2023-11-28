@@ -9,3 +9,5 @@ public class DemoItems {
     Device device8 = new Device(TypesDevice.NOTEBOOK, 8, "Apple", "MacBook Air", 15.3, 256.0, 900.0, 1499.99);
     Device device9 = new Device(TypesDevice.NOTEBOOK, 9, "MSI", "Katana 17 B12VGK", 17.3, 1000.0, 1200.0, 2199.99);
 }
+
+
