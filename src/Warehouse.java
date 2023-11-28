@@ -22,7 +22,7 @@ public class Warehouse {
     }
 
 
-    public static void listaArticoli() {
+    public static void itemsList() {
         if (!deviceList.isEmpty()) {
             for (Device device : deviceList) {
                 System.out.println(device);
@@ -34,7 +34,7 @@ public class Warehouse {
     }
 
     public static void searchDeviceType(TypesDevice type) {
-        boolean dispositivoTrovato = false;
+        boolean foundDevice = false;
 
         for (Device device : deviceList) {
             switch (type) {
@@ -43,20 +43,20 @@ public class Warehouse {
                 case SMARTPHONE:
                     if (device.getType().equals(type)) {
                         System.out.println(device);
-                        dispositivoTrovato = true;
+                        foundDevice = true;
                     }
                     break;
                 default:
                     break;
             }
         }
-        if (!dispositivoTrovato) {
+        if (!foundDevice) {
             System.out.println("Non ci sono prodotti con queste caratteristiche al momento in magazzino");
         }
     }
 
     public static void searchDeviceBrand(String brand) {
-        boolean dispositivoTrovato = false;
+        boolean foundDevice = false;
         for (Device device : deviceList) {
             switch (brand) {
                 case "Apple":
@@ -67,14 +67,14 @@ public class Warehouse {
                 case "MSI":
                     if (device.getBrand().equals(brand)) {
                         System.out.println(device);
-                        dispositivoTrovato = true;
+                        foundDevice = true;
                     }
                     break;
                 default:
                     break;
             }
         }
-        if (!dispositivoTrovato) {
+        if (!foundDevice) {
             System.out.println("Non ci sono prodotti con queste caratteristiche al momento in magazzino");
         }
     }
