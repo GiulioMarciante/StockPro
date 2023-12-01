@@ -130,4 +130,47 @@ public class Warehouse {
                 System.out.println("Non ci sono dispositivi del tipo " + type.toUpperCase());
             }
         }
+
+        public static ArrayList<Device> serchForPurchasePrice (double abstractImput) { //cambiare nome quando viene definito dall'imput.
+
+            ArrayList<Device> result = new ArrayList<>();
+
+            for (Device device : deviceList) {
+                if (device.purchasePrice <= abstractImput) {
+                    result.add(device);
+                }
+            }
+            if (result.isEmpty()) {
+                System.out.println("Nessun dispositivo trovato con questa corrispondenza");
+            }
+            return result;
+        }
+        public static ArrayList<Device> serchForSalesPrice (double abstractImput1) { //cambiare nome quando viene definito dall'imput.
+
+            ArrayList<Device> result = new ArrayList<>();
+
+            for (Device device: deviceList) {
+                if (device.salesPrice <= abstractImput1) {
+                    result.add(device);
+                }
+            }
+            if (result.isEmpty()) {
+                System.out.println("Nessun dispositivo trovato con questa corrispondenza");
+            }
+            return result;
+        }
+        public static ArrayList<Device> serchForRange (double minImput, double maxImput){ //cambiare nome quando viene definito dall'imput.
+
+            ArrayList<Device> result = new ArrayList<>();
+
+            for (Device device: deviceList) {
+                if (device.salesPrice >= minImput && device.salesPrice <= maxImput){
+                    result.add(device);
+                }
+            }
+            if (result.isEmpty()){
+                System.out.println("Nessun dispositivo trovato con questa corrispondenza");
+            }
+            return result;
+        }
     }
