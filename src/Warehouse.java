@@ -1,6 +1,5 @@
 import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -20,7 +19,6 @@ public class Warehouse {
         deviceList.add(demoItems.device8);
         deviceList.add(demoItems.device9);
     }
-
 
     public static void itemsList() {
         if (!deviceList.isEmpty()) {
@@ -113,6 +111,7 @@ public class Warehouse {
 
         for(Device device : deviceList){
             if(device.getType().name().equals(type.toUpperCase())){
+
                     typePrices.add(device);
                     total += device.getPurchasePrice();
             }
