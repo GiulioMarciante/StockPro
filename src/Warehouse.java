@@ -1,9 +1,12 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Warehouse {
     static DemoItems demoItems = new DemoItems();
     static ArrayList<Device> deviceList = new ArrayList<>();
+
 
     public Warehouse() {
         deviceList.add(demoItems.device1);
@@ -108,64 +111,65 @@ public class Warehouse {
 
         for(Device device : deviceList){
             if(device.getType().name().equals(type.toUpperCase())){
-                typePrices.add(device);
-                total += device.getPurchasePrice();
+
+                    typePrices.add(device);
+                    total += device.getPurchasePrice();
             }
         }
-        if (!typePrices.isEmpty()) {
-            double average = total / typePrices.size();
-            System.out.println("La media dei prezzi d'acquisto per " + type.toUpperCase() + " è: " + average);
-            System.out.println("Hai ricercato i seguenti dispositivi: ");
+            if (!typePrices.isEmpty()) {
+                double average = total / typePrices.size();
+                System.out.println("La media dei prezzi d'acquisto per " + type.toUpperCase() + " è: " + average);
+                System.out.println("Hai ricercato i seguenti dispositivi: ");
 
-            for (Device device : typePrices) {
-                System.out.println(device);
+                for (Device device : typePrices) {
+                    System.out.println(device);
+                }
+
+            } else {
+                System.out.println("Non ci sono dispositivi del tipo " + type.toUpperCase());
             }
+        }
 
-        } else {
-            System.out.println("Non ci sono dispositivi del tipo " + type.toUpperCase());
+        public static ArrayList<Device> serchForPurchasePrice (double abstractImput) { //cambiare nome quando viene definito dall'imput.
+
+            ArrayList<Device> result = new ArrayList<>();
+
+            for (Device device : deviceList) {
+                if (device.purchasePrice <= abstractImput) {
+                    result.add(device);
+                }
+            }
+            if (result.isEmpty()) {
+                System.out.println("Nessun dispositivo trovato con questa corrispondenza");
+            }
+            return result;
+        }
+        public static ArrayList<Device> serchForSalesPrice (double abstractImput1) { //cambiare nome quando viene definito dall'imput.
+
+            ArrayList<Device> result = new ArrayList<>();
+
+            for (Device device: deviceList) {
+                if (device.salesPrice <= abstractImput1) {
+                    result.add(device);
+                }
+            }
+            if (result.isEmpty()) {
+                System.out.println("Nessun dispositivo trovato con questa corrispondenza");
+            }
+            return result;
+        }
+        public static ArrayList<Device> serchForRange (double minImput, double maxImput){ //cambiare nome quando viene definito dall'imput.
+
+            ArrayList<Device> result = new ArrayList<>();
+
+            for (Device device: deviceList) {
+                if (device.salesPrice >= minImput && device.salesPrice <= maxImput){
+                    result.add(device);
+                }
+            }
+            if (result.isEmpty()){
+                System.out.println("Nessun dispositivo trovato con questa corrispondenza");
+            }
+            return result;
         }
     }
-
-    public static ArrayList<Device> serchForPurchasePrice (double abstractImput) { //cambiare nome quando viene definito dall'imput.
-
-        ArrayList<Device> result = new ArrayList<>();
-
-        for (Device device : deviceList) {
-            if (device.purchasePrice <= abstractImput) {
-                result.add(device);
-            }
-        }
-        if (result.isEmpty()) {
-            System.out.println("Nessun dispositivo trovato con questa corrispondenza");
-        }
-        return result;
-    }
-    public static ArrayList<Device> serchForSalesPrice (double abstractImput1) { //cambiare nome quando viene definito dall'imput.
-
-        ArrayList<Device> result = new ArrayList<>();
-
-        for (Device device: deviceList) {
-            if (device.salesPrice <= abstractImput1) {
-                result.add(device);
-            }
-        }
-        if (result.isEmpty()) {
-            System.out.println("Nessun dispositivo trovato con questa corrispondenza");
-        }
-        return result;
-    }
-    public static ArrayList<Device> serchForRange (double minImput, double maxImput){ //cambiare nome quando viene definito dall'imput.
-
-        ArrayList<Device> result = new ArrayList<>();
-
-        for (Device device: deviceList) {
-            if (device.salesPrice >= minImput && device.salesPrice <= maxImput){
-                result.add(device);
-            }
-        }
-        if (result.isEmpty()){
-            System.out.println("Nessun dispositivo trovato con questa corrispondenza");
-        }
-        return result;
-    }
-}

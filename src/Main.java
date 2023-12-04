@@ -1,7 +1,8 @@
 public class Main {
     public static void main(String[] args) {
         Warehouse warehouse = new Warehouse();
-//        Warehouse.itemsList();
+
+        //Warehouse.itemsList();
 
         //Warehouse.searchDeviceBrand("HP");
         //Warehouse.searchDeviceType(TypesDevice.NOTEBOOK);
