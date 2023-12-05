@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class DemoItems {
     Device device1 = new Device(TypesDevice.SMARTPHONE, 1, "Samsung", "Galaxy S23", 6.6, 256.0, 550.0, 1099.99);
     Device device2 = new Device(TypesDevice.SMARTPHONE, 2, "Apple", "Iphone 14", 6.1, 128.0, 500.0, 899.99);
@@ -8,6 +11,25 @@ public class DemoItems {
     Device device7 = new Device(TypesDevice.NOTEBOOK, 7, "HP", "250 G9", 15.6, 512.0, 400.0, 849.99);
     Device device8 = new Device(TypesDevice.NOTEBOOK, 8, "Apple", "MacBook Air", 15.3, 256.0, 900.0, 1499.99);
     Device device9 = new Device(TypesDevice.NOTEBOOK, 9, "MSI", "Katana 17 B12VGK", 17.3, 1000.0, 1200.0, 2199.99);
+
+    private final List<Device> deviceList;
+
+    public DemoItems() {
+        deviceList = new ArrayList<>();
+        deviceList.add(device1);
+        deviceList.add(device2);
+        deviceList.add(device3);
+        deviceList.add(device4);
+        deviceList.add(device5);
+        deviceList.add(device6);
+        deviceList.add(device7);
+        deviceList.add(device8);
+        deviceList.add(device9);
+    }
+    public List<Device> getDeviceList() {
+        return deviceList;
+    }
+
 }
 
 
