@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DemoItems {
-    Device device1 = new Device(TypesDevice.SMARTPHONE, 1, "Samsung", "Galaxy S23", 6.6, 256.0, 550.0, 1099.99);
+    Device device1 = new Device(TypesDevice.SMARTPHONE, 1, "Samsung", "Samsung S23", 6.6, 256.0, 550.0, 1099.99);
     Device device2 = new Device(TypesDevice.SMARTPHONE, 2, "Apple", "Iphone 14", 6.1, 128.0, 500.0, 899.99);
     Device device3 = new Device(TypesDevice.SMARTPHONE, 3, "Motorola", "Edge 30 Neo", 6.3, 256.0, 200.0, 299.90);
     Device device4 = new Device(TypesDevice.TABLET, 4, "Samsung", "Galaxy Tab S7 FE", 12.4, 256.0, 230.0, 559.18);
