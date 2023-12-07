@@ -5,23 +5,125 @@ public class Interface {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Sei utente o magazziniere?(Digita '1' se sei Utente o '2' se sei Magazziniere");
-        int input1 = scanner.nextInt();
-        while (input1 != 1 && input1 != 2) {
+        System.out.println("Sei utente o magazziniere?");
+        System.out.println("1.Utente");
+        System.out.println("2.Magazziniere");
+        int input = scanner.nextInt();
+        while (input != 1 && input != 2) {
             System.out.println("Inserimento non valido");
-            input1 = scanner.nextInt();
-            if (input1 == 1 || input1 == 2) {
+            input = scanner.nextInt();
+            if (input == 1 || input == 2) {
                 break;
             }
         }
-        if (input1 == 1) {
+        if (input == 1) {
             System.out.println("Inserisci il tuo nome");
             String nome = scanner.next();
-        } else if (input1 == 2) {
+            System.out.println("Ciao " + nome + ", che ricerca vuoi effettuare?");
+            System.out.println("1.Item disponibili in Magazzino");
+            System.out.println("2.Ricerca dispositivo per brand");
+            System.out.println("3.Ricerca dispositivo per modello");
+            System.out.println("4.Ricerca dispositivo per prezzo di vendita");
+            System.out.println("5.Ricerca dispositivo per range di prezzo");
+            System.out.println("6.Non devo fare altro!");
+            input = scanner.nextInt();
+            while (input != 1 && input != 2 && input != 3 && input != 4 && input != 5 && input != 6) {
+                System.out.println("Inserimento non valido, inserisci uno di questi numeri!");
+                System.out.println("1.Item disponibili in Magazzino");
+                System.out.println("2.Ricerca dispositivo per brand");
+                System.out.println("3.Ricerca dispositivo per modello");
+                System.out.println("4.Ricerca dispositivo per prezzo di vendita");
+                System.out.println("5.Ricerca dispositivo per range di prezzo");
+                System.out.println("6.Non devo fare altro!");
+                input = scanner.nextInt();
+            }
+            while (true) {
+                if (input == 1) {
+                    System.out.println("Questa è lista di tutti gli items presenti in magazzino");
+                    Warehouse.itemsList().forEach(System.out::println);
+                    System.out.println("Questo è il risultato della tua ricerca!");
+                    System.out.println();
+                    System.out.println("Vuoi fare altro?");
+                    System.out.println("2.Ricerca dispositivo per brand");
+                    System.out.println("3.Ricerca dispositivo per modello");
+                    System.out.println("4.Ricerca dispositivo per prezzo di vendita");
+                    System.out.println("5.Ricerca dispositivo per range di prezzo");
+                    System.out.println("6.Non devo fare altro!");
+                    input = scanner.nextInt();
+                } else if (input == 2) {
+                    System.out.println("Inserisci il nome del brand a cui sei interessato!");
+                    Warehouse.searchDeviceBrand(scanner.next()).forEach(System.out::println);
+                    System.out.println("Questo è il risultato della tua ricerca!");
+                    System.out.println();
+                    System.out.println("Vuoi fare altro?");
+                    System.out.println("1.Item disponibili in Magazzino");
+                    System.out.println("3.Ricerca dispositivo per modello");
+                    System.out.println("4.Ricerca dispositivo per prezzo di vendita");
+                    System.out.println("5.Ricerca dispositivo per range di prezzo");
+                    System.out.println("6.Non devo fare altro!");
+                    input = scanner.nextInt();
+
+                } else if (input == 3) {
+                    scanner.nextLine();
+                    System.out.println("Inserisci il nome del modello a cui sei interessato!");
+                    Warehouse.searchDeviceModel(scanner.nextLine()).forEach(System.out::println);
+                    System.out.println("Questo è il risultato della tua ricerca!");
+                    System.out.println();
+                    System.out.println("Vuoi fare altro?");
+                    System.out.println("1.Item disponibili in Magazzino");
+                    System.out.println("2.Ricerca dispositivo per brand");
+                    System.out.println("4.Ricerca dispositivo per prezzo di vendita");
+                    System.out.println("5.Ricerca dispositivo per range di prezzo");
+                    System.out.println("6.Non devo fare altro!");
+                    input = scanner.nextInt();
+
+                } else if (input == 4) {
+                    System.out.println("Ricerca per prezzo di vendita, inserire un prezzo di ricerca!");
+                    Warehouse.searchForSalesPrice(scanner.nextInt()).forEach(System.out::println);
+                    System.out.println("Questo è il risultato della tua ricerca!");
+                    System.out.println();
+                    System.out.println("Vuoi fare altro?");
+                    System.out.println("1.Item disponibili in Magazzino");
+                    System.out.println("2.Ricerca dispositivo per brand");
+                    System.out.println("3.Ricerca dispositivo per modello");
+                    System.out.println("5.Ricerca dispositivo per range di prezzo");
+                    System.out.println("6.Non devo fare altro!");
+                    input = scanner.nextInt();
+
+                } else if (input == 5) {
+                    System.out.println("Ricerca per range di prezzo, inserire un valore di ricerca per volta!");
+                    Warehouse.searchForRange(scanner.nextInt(), scanner.nextInt()).forEach(System.out::println);
+                    System.out.println("Questo è il risultato della tua ricerca!");
+                    System.out.println();
+                    System.out.println("Vuoi fare altro?");
+                    System.out.println("1.Item disponibili in Magazzino");
+                    System.out.println("2.Ricerca dispositivo per brand");
+                    System.out.println("3.Ricerca dispositivo per modello");
+                    System.out.println("4.Ricerca dispositivo per prezzo di vendita");
+                    System.out.println("6.Non devo fare altro!");
+                    input = scanner.nextInt();
+
+                } else if (input == 6) {
+                    System.out.println("Buona giornata " + nome + "\n Torna presto!");
+                    break;
+
+                } else {
+                    System.out.println("Inserimento non valido, inserisci uno di questi numeri!");
+                    System.out.println("1.Item disponibili in Magazzino");
+                    System.out.println("2.Ricerca dispositivo per brand");
+                    System.out.println("3.Ricerca dispositivo per modello");
+                    System.out.println("4.Ricerca dispositivo per prezzo di vendita");
+                    System.out.println("5.Ricerca dispositivo per range di prezzo");
+                    System.out.println("6.Non devo fare altro!");
+                    input = scanner.nextInt();
+                }
+            }
+
+        } else if (input == 2) {
             System.out.println("Inserisci Id");
             int idMag = scanner.nextInt();
             while (idMag != 12) {
-                System.out.println("Id inesistente");
+                System.out.println("Id inesistente, inserisci l'Id corretto");
                 idMag = scanner.nextInt();
                 if (idMag == 12) break;
             }
@@ -30,7 +132,7 @@ public class Interface {
                     System.out.println("Inserisci password");
                     String passwd = scanner.next();
                     while (!passwd.equals("passwd")) {
-                        System.out.println("Password errata! Reinserisci la password corretta");
+                        System.out.println("Password errata, reinserisci la password corretta!");
                         passwd = scanner.next();
                         if (passwd.equals("passwd")) break;
                     }
@@ -40,56 +142,78 @@ public class Interface {
                         System.out.println("2.Inserisci Item");
                         System.out.println("3.Ricerca per prezzo di acquisto");
                         System.out.println("4.Ricerca spesa media per tipo di dispositivo");
-                        System.out.println("5.Chiudi il programma");
-                        int input2 = scanner.nextInt();
-                        while (input2 != 1 && input2 != 2 && input2 != 3 && input2 != 4 && input2 != 5) {
-                            System.out.println("Inserimento non valido");
-                            input2 = scanner.nextInt();
-                            if (input2 == 1 || input1 == 2 || input1 == 3 || input1 == 4 || input1 == 5) {
+                        System.out.println("5.Non devo fare altro!");
+                        input = scanner.nextInt();
+                        while (input != 1 && input != 2 && input != 3 && input != 4 && input != 5) {
+                            System.out.println("Inserimento non valido, inserisci uno di questi numeri!");
+                            input = scanner.nextInt();
+                        }
+                        while (true) {
+                            if (input == 1) {
+                                System.out.println("Questa è lista di tutti gli items presenti in magazzino");
+                                Warehouse.itemsList().forEach(System.out::println);
+                                System.out.println("Questo è il risultato della tua ricerca!");
+                                System.out.println();
+
+                                System.out.println("Vuoi fare altro?");
+                                System.out.println("2.Inserisci Item");
+                                System.out.println("3.Ricerca per prezzo di acquisto");
+                                System.out.println("4.Ricerca spesa media per tipo di dispositivo");
+                                System.out.println("5.Non devo fare altro!");
+                                input = scanner.nextInt();
+                            } else if (input == 2) {
+                                System.out.println("Inserisci (l'Id)? dell'item da aggiungere al magazzino");
+
+                                // ancora da fare
+
+                                System.out.println("Questo è il risultato della tua ricerca!");
+                                System.out.println();
+
+                                System.out.println("Vuoi fare altro?");
+                                System.out.println("1.Controlla Item in Magazzino");
+                                System.out.println("3.Ricerca per prezzo di acquisto");
+                                System.out.println("4.Ricerca spesa media per tipo di dispositivo");
+                                System.out.println("5.Non devo fare altro!");
+                                input = scanner.nextInt();
+                            } else if (input == 3) {
+                                System.out.println("Ricerca per prezzo d'acquisto, inserire un prezzo di ricerca!");
+                                Warehouse.searchForPurchasePrice(scanner.nextInt()).forEach(System.out::println);
+                                System.out.println("Questo è il risultato della tua ricerca!");
+                                System.out.println();
+
+                                System.out.println("Vuoi fare altro?");
+                                System.out.println("1.Controlla Item in Magazzino");
+                                System.out.println("2.Inserisci Item");
+                                System.out.println("4.Ricerca spesa media per tipo di dispositivo");
+                                System.out.println("5.Non devo fare altro!");
+                                input = scanner.nextInt();
+                            } else if (input == 4) {
+                                System.out.println("Ricerca spesa media per tipo di dispositivo, inserire un tipo per la ricerca(notebook, smartphone, tablet) ");
+                                Warehouse.calculateAverage(scanner.next()).forEach(System.out::println);
+                                System.out.println("Questo è il risultato della tua ricerca!");
+                                System.out.println();
+
+                                System.out.println("Vuoi fare altro?");
+                                System.out.println("1.Controlla Item in Magazzino");
+                                System.out.println("2.Inserisci Item");
+                                System.out.println("3.Ricerca per prezzo di acquisto");
+                                System.out.println("5.Non devo fare altro!");
+                                input = scanner.nextInt();
+                            } else if (input == 5) {
+                                System.out.println("Buona giornata!");
                                 break;
+                            } else {
+                                System.out.println("Inserimento non valido, inserire uno di questi numeri!");
+                                System.out.println("1.Controlla Item in Magazzino");
+                                System.out.println("2.Inserisci Item");
+                                System.out.println("3.Ricerca per prezzo di acquisto");
+                                System.out.println("4.Ricerca spesa media per tipo di dispositivo");
+                                System.out.println("5.Non devo fare altro!");
+                                input = scanner.nextInt();
                             }
                         }
-                        //da qui in poi non funziona ancora, la parte di sopra dovrebbe!     id=12, password=passwd
-
-                        if (input2 == 1) {
-                            Warehouse.itemsList().forEach(System.out::println); //funzione che vede tutti gli items con tutti i prezzi
-                            System.out.println("Vuoi fare altro?");
-                            System.out.println("2.Inserisci Item");
-                            System.out.println("3.Ricerca per prezzo di acquisto");
-                            System.out.println("4.Ricerca spesa media per tipo di dispositivo");
-                            System.out.println("5.Chiudi il programma");
-                            input2 = scanner.nextInt();
-                        } else if (input2 == 2) {
-                            // ancora da fare
-                            System.out.println("Vuoi fare altro?");
-                            System.out.println("1.Controlla Item in Magazzino");
-                            System.out.println("3.Ricerca per prezzo di acquisto");
-                            System.out.println("4.Ricerca spesa media per tipo di dispositivo");
-                            System.out.println("5.Chiudi il programma");
-                            input2 = scanner.nextInt();
-                        } else if (input2 == 3) {
-                            Warehouse.serchForPurchasePrice(scanner.nextInt());
-                            System.out.println("Vuoi fare altro?");
-                            System.out.println("1.Controlla Item in Magazzino");
-                            System.out.println("2.Inserisci Item");
-                            System.out.println("4.Ricerca spesa media per tipo di dispositivo");
-                            System.out.println("5.Chiudi il programma");
-                            input2 = scanner.nextInt();
-                        } else if (input2 == 4) {
-                            Warehouse.calculateAverage(scanner.next());
-                            System.out.println("Vuoi fare altro?");
-                            System.out.println("1.Controlla Item in Magazzino");
-                            System.out.println("2.Inserisci Item");
-                            System.out.println("3.Ricerca per prezzo di acquisto");
-                            System.out.println("5.Chiudi il programma");
-                            input2 = scanner.nextInt();
-                        } else if (input2 == 5) {
-                            break;
-                        }
                     }
-
             }
         }
     }
-
 }
