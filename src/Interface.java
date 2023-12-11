@@ -163,9 +163,6 @@ public class Interface {
                                 input = scanner.nextInt();
                             } else if (input == 2) {
                                 System.out.println("Inserisci (l'Id)? dell'item da aggiungere al magazzino");
-
-                                // ancora da fare
-
                                 System.out.println("Questo è il risultato della tua ricerca!");
                                 System.out.println();
 

@@ -2,7 +2,7 @@ import java.math.BigDecimal;
 import java.util.Iterator;
 import java.util.List;
 
-public class ManageCart {
+public class CartManage {
     static List<Device> deviceToCart = Warehouse.deviceList;
 
     public static void intoCart(int id) {
@@ -13,8 +13,7 @@ public class ManageCart {
                 Cart.userCart.add(device);
                 iterator.remove();
                 break;
-            }else{
-                System.out.println("Id non corretto");}
+            }
         }
     }
     public static void outOfCart(int id){
@@ -25,8 +24,6 @@ public class ManageCart {
                 deviceToCart.add(userCart);
                 iterator.remove();
                 break;
-            }else{
-                System.out.println("Id non corretto");
             }
         }
     }
@@ -39,4 +36,9 @@ public class ManageCart {
         return  BigDecimal.valueOf(total).setScale(2,0);
     }
 
+    public static void completePurchase(){
+        System.out.println("Prezzo totale: " + (totalCart()));
+        Cart.userCart.clear();
+        System.out.println("Grazie dell'acquisto.");
+    }
 }

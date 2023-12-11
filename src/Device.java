@@ -1,27 +1,24 @@
 public class Device {
-    private TypesDevice type;
+    private DeviceTypes type;
     private int id;
     private String brand;
     private String model;
-
-    //String Description;
-
     private Double displayDimension;
     private Double memoryDimension;
     private Double purchasePrice;
     private Double salesPrice;
+    private String description;
 
-
-    public Device(TypesDevice type, int id, String brand, String model, Double displayDimension, Double memoryDimension, Double purchasePrice, Double salesPrice) {
+    public Device(DeviceTypes type, int id, String brand, String model, Double displayDimension, Double memoryDimension, Double purchasePrice, Double salesPrice) {
         this.type = type;
         this.id = id;
         this.brand = brand;
         this.model = model;
-//        this.Description=Description;
         this.displayDimension = displayDimension;
         this.memoryDimension = memoryDimension;
         this.purchasePrice = purchasePrice;
         this.salesPrice = salesPrice;
+//        this.description =
     }
 
     @Override
@@ -37,11 +34,11 @@ public class Device {
                 '}';
     }
 
-    public TypesDevice getType() {
+    public DeviceTypes getType() {
         return type;
     }
 
-    public void setType(TypesDevice type) {
+    public void setType(DeviceTypes type) {
         this.type = type;
     }
 
@@ -99,5 +96,13 @@ public class Device {
 
     public void setSalesPrice(Double salesPrice) {
         this.salesPrice = salesPrice;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
