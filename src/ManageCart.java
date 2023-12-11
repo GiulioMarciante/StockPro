@@ -1,3 +1,4 @@
+import java.math.BigDecimal;
 import java.util.Iterator;
 import java.util.List;
 
@@ -29,4 +30,13 @@ public class ManageCart {
             }
         }
     }
+
+    public static BigDecimal totalCart() {
+        double total = 0.0;
+        for(Device device : Cart.userCart) {
+            total += device.getSalesPrice();
+        }
+        return  BigDecimal.valueOf(total).setScale(2,0);
+    }
+
 }
