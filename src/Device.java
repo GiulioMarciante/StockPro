@@ -5,6 +5,7 @@ public class Device {
     private String model;
 
     //String Description;
+
     private Double displayDimension;
     private Double memoryDimension;
     private Double purchasePrice;
