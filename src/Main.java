@@ -12,7 +12,10 @@ public class Main {
 //        Warehouse.serchForPurchasePrice(500).forEach(System.out::println);
 //        Warehouse.serchForSalesPrice(500).forEach(System.out::println);
 //        Warehouse.serchForRange(500,1000).forEach(System.out::println);
-
+        CartManage.intoCart(3);
+        CartManage.intoCart(1);
+        System.out.println(Cart.userCart);
+        System.out.println(CartManage.totalCart());
 
 
     }

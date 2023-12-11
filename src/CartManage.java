@@ -13,8 +13,7 @@ public class CartManage {
                 Cart.userCart.add(device);
                 iterator.remove();
                 break;
-            }else{
-                System.out.println("Id non corretto");}
+            }
         }
     }
     public static void outOfCart(int id){
@@ -25,8 +24,6 @@ public class CartManage {
                 deviceToCart.add(userCart);
                 iterator.remove();
                 break;
-            }else{
-                System.out.println("Id non corretto");
             }
         }
     }
