@@ -30,7 +30,11 @@ public class Cart {
             }
         }
     }
-
+    public static void completePurchase(){
+        System.out.println("Prezzo totale: " + (funzione totale carrello) );
+        userCart.clear();
+        System.out.println("Grazie dell'acquisto.");
+    }
 
 
 }

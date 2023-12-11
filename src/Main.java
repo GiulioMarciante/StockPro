@@ -5,7 +5,7 @@ public class Main {
 
 
 //        Warehouse.itemsList().forEach(System.out::println);
-        Warehouse.searchDeviceBrand("").forEach(System.out::println);
+          Warehouse.searchDeviceBrand("").forEach(System.out::println);
 //        Warehouse.searchDeviceType(TypesDevice.TABLET).forEach(System.out::println);
 //        Warehouse.searchDeviceModel("Iphone 14").forEach(System.out::println);
 //        Warehouse.calculateAverage("notebook").forEach(System.out::println);
