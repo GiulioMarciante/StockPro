@@ -14,10 +14,16 @@ public class Main {
 //        Warehouse.serchForRange(500,1000).forEach(System.out::println);
 
         ManageCart.intoCart(1);
+        ManageCart.intoCart(3);
+        ManageCart.intoCart(4);
         System.out.println(Cart.userCart);
         System.out.println(Warehouse.deviceList);
 
-        ManageCart.outOfCart(1);
-        System.out.println(Cart.userCart);
+        System.out.println(ManageCart.totalCart());
+
+//        ManageCart.outOfCart(1);
+//        System.out.println(Cart.userCart);
+
+
     }
 }
