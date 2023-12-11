@@ -1,5 +1,6 @@
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -115,7 +116,7 @@ public class Warehouse {
         ArrayList<Device> result = new ArrayList<>();
 
         for (Device device : deviceList) {
-            if (device.purchasePrice <= abstractImput) {
+            if (device.getPurchasePrice() <= abstractImput) {
                 result.add(device);
             }
         }
@@ -130,7 +131,7 @@ public class Warehouse {
         ArrayList<Device> result = new ArrayList<>();
 
         for (Device device : deviceList) {
-            if (device.salesPrice <= abstractImput1) {
+            if (device.getSalesPrice() <= abstractImput1) {
                 result.add(device);
             }
         }
@@ -145,7 +146,7 @@ public class Warehouse {
         ArrayList<Device> result = new ArrayList<>();
 
         for (Device device : deviceList) {
-            if (device.salesPrice >= minImput && device.salesPrice <= maxImput) {
+            if (device.getSalesPrice() >= minImput && device.getSalesPrice() <= maxImput) {
                 result.add(device);
             }
         }

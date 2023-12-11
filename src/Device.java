@@ -1,14 +1,14 @@
 public class Device {
-    TypesDevice type;
-    int id;
-    String brand;
-    String model;
+    private TypesDevice type;
+    private int id;
+    private String brand;
+    private String model;
 
     //String Description;
-    Double displayDimension;
-    Double memoryDimension;
-    Double purchasePrice;
-    Double salesPrice;
+    private Double displayDimension;
+    private Double memoryDimension;
+    private Double purchasePrice;
+    private Double salesPrice;
 
 
     public Device(TypesDevice type, int id, String brand, String model, Double displayDimension, Double memoryDimension, Double purchasePrice, Double salesPrice) {
