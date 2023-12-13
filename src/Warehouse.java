@@ -66,7 +66,7 @@ public class Warehouse {
         for (Device device : deviceList) {
             if (device.getModel().toLowerCase().equals(modelLowerCase)) {
                 searchModelResult.add(device);
-                System.out.println(searchModelResult + "\nPer aggiungere questo prodotto nel carrello selezionare: " + device.getId());
+                System.out.println("\nPer aggiungere questo prodotto nel carrello selezionare: " + device.getId());
             }
         }
         if (searchModelResult.isEmpty()) {
@@ -143,7 +143,7 @@ public class Warehouse {
 
     public static List<Device> searchForRange(double minImput, double maxImput) { //cambiare nome quando viene definito dall'imput.
 
-        ArrayList<Device> result = new ArrayList<>();
+        List<Device> result = new ArrayList<>();
 
         for (Device device : deviceList) {
             if (device.getSalesPrice() >= minImput && device.getSalesPrice() <= maxImput) {

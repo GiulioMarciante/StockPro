@@ -10,18 +10,26 @@ public class Device {
     private Double memoryDimension;
     private Double purchasePrice;
     private Double salesPrice;
+    private String description;
+
+    public Device() {
+    }
 
 
-    public Device(TypesDevice type, int id, String brand, String model, Double displayDimension, Double memoryDimension, Double purchasePrice, Double salesPrice) {
-        this.type = type;
-        this.id = id;
-        this.brand = brand;
-        this.model = model;
-//        this.Description=Description;
-        this.displayDimension = displayDimension;
-        this.memoryDimension = memoryDimension;
-        this.purchasePrice = purchasePrice;
-        this.salesPrice = salesPrice;
+    public Device(BuilderDevice builder) {
+        this.type = builder.type;
+        this.id = builder.id;
+        this.brand = builder.brand;
+        this.model = builder.model;
+        this.displayDimension = builder.displayDimension;
+        this.memoryDimension = builder.memoryDimension;
+        this.purchasePrice = builder.purchasePrice;
+        this.salesPrice = builder.salesPrice;
+        this.description = builder.description;
+    }
+
+
+    public Device(TypesDevice type, int id, String brand, String model, double displayDimension, double memoryDimension, double purchasePrice, double salesPrice) {
     }
 
     @Override
