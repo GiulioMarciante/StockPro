@@ -1,8 +1,10 @@
 public class Main {
-    Warehouse warehouse = new Warehouse();
+
+ static Interface anInterface = new Interface();
 
     public static void main(String[] args) {
 
+anInterface.createInterface();
 
 //        Warehouse.itemsList().forEach(System.out::println);
 //        warehouse.searchDeviceBrand("").forEach(System.out::println);
@@ -13,11 +15,11 @@ public class Main {
 //        Warehouse.serchForSalesPrice(500).forEach(System.out::println);
 //        Warehouse.serchForRange(500,1000).forEach(System.out::println);
 
-        ManageCart.intoCart(1);
-        System.out.println(Cart.userCart);
-        System.out.println(Warehouse.deviceList);
-
-        ManageCart.outOfCart(1);
-        System.out.println(Cart.userCart);
+//        CartManager.intoCart(1);
+//        System.out.println(Cart.userCart);
+//        System.out.println(Warehouse.deviceList);
+//
+//        CartManager.outOfCart(1);
+//        System.out.println(Cart.userCart);
     }
 }

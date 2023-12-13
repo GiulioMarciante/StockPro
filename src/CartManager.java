@@ -1,15 +1,17 @@
 import java.util.Iterator;
 import java.util.List;
 
-public class ManageCart {
+public class CartManager {
     static List<Device> deviceToCart = Warehouse.deviceList;
+    static Cart cart = new Cart();
 
     public static void intoCart(int id) {
+
         Iterator<Device> iterator = deviceToCart.listIterator();
         while (iterator.hasNext()) {
             Device device = iterator.next();
             if (id == device.getId()) {
-                Cart.userCart.add(device);
+                cart.userCart.add(device);
                 iterator.remove();
                 break;
             }else{
@@ -17,7 +19,8 @@ public class ManageCart {
         }
     }
     public static void outOfCart(int id){
-        Iterator<Device> iterator = Cart.userCart.iterator();
+
+        Iterator<Device> iterator = cart.userCart.iterator();
         while (iterator.hasNext()) {
             Device userCart = iterator.next();
             if (id == userCart.getId()) {

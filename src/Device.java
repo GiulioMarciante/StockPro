@@ -3,9 +3,6 @@ public class Device {
     private int id;
     private String brand;
     private String model;
-
-    //String Description;
-
     private Double displayDimension;
     private Double memoryDimension;
     private Double purchasePrice;

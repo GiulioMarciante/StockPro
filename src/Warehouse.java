@@ -1,20 +1,20 @@
 import java.lang.reflect.Array;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
 public class Warehouse {
-   private static DemoItems demoItems = new DemoItems();
+    private static DemoItems demoItems = new DemoItems();
     static List<Device> deviceList = demoItems.getDeviceList();
 
 
-    public static List<Device> itemsList() {
+    public List<Device> itemsList() {
         List<Device> fullDeviceList = new ArrayList<>();
         if (!deviceList.isEmpty()) {
-            for (Device device : deviceList) {
-                fullDeviceList.add(device);
-            }
+            fullDeviceList.addAll(deviceList);
 
         } else {
             System.out.println("Il magazzino è vuoto");
@@ -22,7 +22,7 @@ public class Warehouse {
         return fullDeviceList;
     }
 
-    public static List<Device> searchDeviceType(TypesDevice type) {
+    public List<Device> searchDeviceType(TypesDevice type) {
         boolean foundDevice = false;
         List<Device> searchDeviceTypeList = new ArrayList<>();
 
@@ -46,7 +46,7 @@ public class Warehouse {
         return searchDeviceTypeList;
     }
 
-    public static List<Device> searchDeviceBrand(String brand) {
+    public List<Device> searchDeviceBrand(String brand) {
         List<Device> searchBrandResult = new ArrayList<>();
         String brandLowerCase = brand.toLowerCase();
         for (Device device : deviceList) {
@@ -60,7 +60,7 @@ public class Warehouse {
         return searchBrandResult;
     }
 
-    public static List<Device> searchDeviceModel(String model) {
+    public List<Device> searchDeviceModel(String model) {
         List<Device> searchModelResult = new ArrayList<>();
         String modelLowerCase = model.toLowerCase();
         for (Device device : deviceList) {
@@ -77,13 +77,7 @@ public class Warehouse {
 
     }
 
-    public static List<Device> calculateAverage(String type) {
-//        try {
-//            TypesDevice.valueOf(type.toUpperCase());
-//        } catch (IllegalArgumentException e) {
-//            System.out.println("Tipo non valido: " + type);
-//            return;
-//        }
+    public List<Device> calculateAverage(String type) {
 
         List<Device> typePrices = new ArrayList<>();
         double total = 0.0;
@@ -94,16 +88,14 @@ public class Warehouse {
 
                 typePrices.add(device);
                 total += device.getPurchasePrice();
+
             }
         }
         if (!typePrices.isEmpty()) {
-            double average = total / typePrices.size();
+
+            BigDecimal average = BigDecimal.valueOf(total / typePrices.size()).setScale(2, RoundingMode.HALF_EVEN);
             System.out.println("La media dei prezzi d'acquisto per " + type.toUpperCase() + " è: " + average);
             System.out.println("Hai ricercato i seguenti dispositivi: ");
-
-//            for (Device device : typePrices) {
-//                System.out.println(device);
-//            }
 
         } else {
             System.out.println("Non ci sono dispositivi del tipo " + type.toUpperCase());
@@ -111,12 +103,12 @@ public class Warehouse {
         return typePrices;
     }
 
-    public static List<Device> searchForPurchasePrice(double abstractImput) { //cambiare nome quando viene definito dall'imput.
+    public List<Device> searchForPurchasePrice(double input) { 
 
         ArrayList<Device> result = new ArrayList<>();
 
         for (Device device : deviceList) {
-            if (device.getPurchasePrice() <= abstractImput) {
+            if (device.getPurchasePrice() <= input) {
                 result.add(device);
             }
         }
@@ -126,12 +118,12 @@ public class Warehouse {
         return result;
     }
 
-    public static List<Device> searchForSalesPrice(double abstractImput1) { //cambiare nome quando viene definito dall'imput.
+    public List<Device> searchForSalesPrice(double input) {
 
         ArrayList<Device> result = new ArrayList<>();
 
         for (Device device : deviceList) {
-            if (device.getSalesPrice() <= abstractImput1) {
+            if (device.getSalesPrice() <= input) {
                 result.add(device);
             }
         }
@@ -141,12 +133,12 @@ public class Warehouse {
         return result;
     }
 
-    public static List<Device> searchForRange(double minImput, double maxImput) { //cambiare nome quando viene definito dall'imput.
+    public List<Device> searchForRange(double minInput, double maxInput) {
 
         List<Device> result = new ArrayList<>();
 
         for (Device device : deviceList) {
-            if (device.getSalesPrice() >= minImput && device.getSalesPrice() <= maxImput) {
+            if (device.getSalesPrice() >= minInput && device.getSalesPrice() <= maxInput) {
                 result.add(device);
             }
         }
