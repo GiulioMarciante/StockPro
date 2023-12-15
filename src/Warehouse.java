@@ -153,4 +153,12 @@ public class Warehouse {
         }
         return result;
     }
+    public static List<Device> addItem(DeviceTypes type, int id, String brand, String model, Double displayDimension, Double memoryDimension, Double purchasePrice, Double salesPrice) {
+
+        Device item = new Device(type, id, brand, model, displayDimension, memoryDimension, purchasePrice, salesPrice);
+
+        deviceList.add(item);
+
+        return deviceList;
+    }
 }
