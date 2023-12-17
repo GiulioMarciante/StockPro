@@ -1,23 +1,26 @@
 import java.math.BigDecimal;
 import java.util.Iterator;
 import java.util.List;
+public class CartManager {
 
-public class CartManage {
     static List<Device> deviceToCart = Warehouse.deviceList;
+    static Cart cart = new Cart();
 
-    public static void intoCart(int id) {
+    public void intoCart(int id) {
+
         Iterator<Device> iterator = deviceToCart.listIterator();
         while (iterator.hasNext()) {
             Device device = iterator.next();
             if (id == device.getId()) {
-                Cart.userCart.add(device);
+                cart.userCart.add(device);
                 iterator.remove();
                 break;
             }
         }
     }
-    public static void outOfCart(int id){
-        Iterator<Device> iterator = Cart.userCart.iterator();
+    public void outOfCart(int id){
+
+        Iterator<Device> iterator = cart.userCart.iterator();
         while (iterator.hasNext()) {
             Device userCart = iterator.next();
             if (id == userCart.getId()) {
@@ -28,17 +31,17 @@ public class CartManage {
         }
     }
 
-    public static BigDecimal totalCart() {
+    public BigDecimal totalCart() {
         double total = 0.0;
-        for(Device device : Cart.userCart) {
+        for(Device device : cart.userCart) {
             total += device.getSalesPrice();
         }
         return  BigDecimal.valueOf(total).setScale(2,0);
     }
 
-    public static void completePurchase(){
+    public void completePurchase(){
         System.out.println("Prezzo totale: " + (totalCart()));
-        Cart.userCart.clear();
+        cart.userCart.clear();
         System.out.println("Grazie dell'acquisto.");
     }
 }

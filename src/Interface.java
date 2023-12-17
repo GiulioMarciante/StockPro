@@ -1,8 +1,9 @@
 import java.util.Scanner;
 
 public class Interface {
+Warehouse warehouse = new Warehouse();
 
-    public static void main(String[] args) {
+    public void createInterface() {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Sei utente o magazziniere?");
@@ -40,7 +41,7 @@ public class Interface {
             while (true) {
                 if (input == 1) {
                     System.out.println("Questa è lista di tutti gli items presenti in magazzino");
-                    Warehouse.itemsList().forEach(System.out::println);
+                    warehouse.itemsList().forEach(System.out::println);
                     System.out.println("Questo è il risultato della tua ricerca!");
                     System.out.println();
                     System.out.println("Vuoi fare altro?");
@@ -52,7 +53,7 @@ public class Interface {
                     input = scanner.nextInt();
                 } else if (input == 2) {
                     System.out.println("Inserisci il nome del brand a cui sei interessato!");
-                    Warehouse.searchDeviceBrand(scanner.next()).forEach(System.out::println);
+                    warehouse.searchDeviceBrand(scanner.next()).forEach(System.out::println);
                     System.out.println("Questo è il risultato della tua ricerca!");
                     System.out.println();
                     System.out.println("Vuoi fare altro?");
@@ -66,7 +67,7 @@ public class Interface {
                 } else if (input == 3) {
                     scanner.nextLine();
                     System.out.println("Inserisci il nome del modello a cui sei interessato!");
-                    Warehouse.searchDeviceModel(scanner.nextLine()).forEach(System.out::println);
+                    warehouse.searchDeviceModel(scanner.nextLine()).forEach(System.out::println);
                     System.out.println("Questo è il risultato della tua ricerca!");
                     System.out.println();
                     System.out.println("Vuoi fare altro?");
@@ -79,7 +80,7 @@ public class Interface {
 
                 } else if (input == 4) {
                     System.out.println("Ricerca per prezzo di vendita, inserire un prezzo di ricerca!");
-                    Warehouse.searchForSalesPrice(scanner.nextInt()).forEach(System.out::println);
+                    warehouse.searchForSalesPrice(scanner.nextInt()).forEach(System.out::println);
                     System.out.println("Questo è il risultato della tua ricerca!");
                     System.out.println();
                     System.out.println("Vuoi fare altro?");
@@ -92,7 +93,7 @@ public class Interface {
 
                 } else if (input == 5) {
                     System.out.println("Ricerca per range di prezzo, inserire un valore di ricerca per volta!");
-                    Warehouse.searchForRange(scanner.nextInt(), scanner.nextInt()).forEach(System.out::println);
+                    warehouse.searchForRange(scanner.nextInt(), scanner.nextInt()).forEach(System.out::println);
                     System.out.println("Questo è il risultato della tua ricerca!");
                     System.out.println();
                     System.out.println("Vuoi fare altro?");
@@ -151,7 +152,7 @@ public class Interface {
                         while (true) {
                             if (input == 1) {
                                 System.out.println("Questa è lista di tutti gli items presenti in magazzino");
-                                Warehouse.itemsList().forEach(System.out::println);
+                                warehouse.itemsList().forEach(System.out::println);
                                 System.out.println("Questo è il risultato della tua ricerca!");
                                 System.out.println();
 
@@ -174,7 +175,7 @@ public class Interface {
                                 input = scanner.nextInt();
                             } else if (input == 3) {
                                 System.out.println("Ricerca per prezzo d'acquisto, inserire un prezzo di ricerca!");
-                                Warehouse.searchForPurchasePrice(scanner.nextInt()).forEach(System.out::println);
+                                warehouse.searchForPurchasePrice(scanner.nextInt()).forEach(System.out::println);
                                 System.out.println("Questo è il risultato della tua ricerca!");
                                 System.out.println();
 
@@ -186,7 +187,7 @@ public class Interface {
                                 input = scanner.nextInt();
                             } else if (input == 4) {
                                 System.out.println("Ricerca spesa media per tipo di dispositivo, inserire un tipo per la ricerca(notebook, smartphone, tablet) ");
-                                Warehouse.calculateAverage(scanner.next()).forEach(System.out::println);
+                                warehouse.calculateAverage(scanner.next()).forEach(System.out::println);
                                 System.out.println("Questo è il risultato della tua ricerca!");
                                 System.out.println();
 
