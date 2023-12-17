@@ -1,5 +1,5 @@
 public class Device {
-    private TypesDevice type;
+    private DeviceTypes type;
     private int id;
     private String brand;
     private String model;
@@ -26,7 +26,7 @@ public class Device {
     }
 
 
-    public Device(TypesDevice type, int id, String brand, String model, double displayDimension, double memoryDimension, double purchasePrice, double salesPrice) {
+    public Device(DeviceTypes type, int id, String brand, String model, double displayDimension, double memoryDimension, double purchasePrice, double salesPrice) {
     }
 
     @Override
@@ -42,11 +42,11 @@ public class Device {
                 '}';
     }
 
-    public TypesDevice getType() {
+    public DeviceTypes getType() {
         return type;
     }
 
-    public void setType(TypesDevice type) {
+    public void setType(DeviceTypes type) {
         this.type = type;
     }
 

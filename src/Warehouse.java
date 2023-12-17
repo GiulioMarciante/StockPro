@@ -1,10 +1,8 @@
-import java.lang.reflect.Array;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Scanner;
+
 
 public class Warehouse {
     private static DemoItems demoItems = new DemoItems();
@@ -22,7 +20,7 @@ public class Warehouse {
         return fullDeviceList;
     }
 
-    public List<Device> searchDeviceType(TypesDevice type) {
+    public List<Device> searchDeviceType(DeviceTypes type) {
         boolean foundDevice = false;
         List<Device> searchDeviceTypeList = new ArrayList<>();
 
@@ -146,5 +144,11 @@ public class Warehouse {
             System.out.println("Nessun dispositivo trovato con questa corrispondenza");
         }
         return result;
+    }
+    public List<Device> addItem(DeviceTypes type, int id, String brand, String model, Double displayDimension, Double memoryDimension, Double purchasePrice, Double salesPrice) {
+
+        Device item = new Device(type, id, brand, model, displayDimension, memoryDimension, purchasePrice, salesPrice);
+        deviceList.add(item);
+        return deviceList;
     }
 }

@@ -1,4 +1,4 @@
-public enum TypesDevice {
+public enum DeviceTypes {
     TABLET,
     SMARTPHONE,
     NOTEBOOK

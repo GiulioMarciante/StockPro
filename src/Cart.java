@@ -5,5 +5,4 @@ import java.util.List;
 public class Cart {
      List<Device> userCart = new ArrayList<Device>();
 
-
 }

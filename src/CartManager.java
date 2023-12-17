@@ -1,11 +1,12 @@
+import java.math.BigDecimal;
 import java.util.Iterator;
 import java.util.List;
-
 public class CartManager {
+
     static List<Device> deviceToCart = Warehouse.deviceList;
     static Cart cart = new Cart();
 
-    public static void intoCart(int id) {
+    public void intoCart(int id) {
 
         Iterator<Device> iterator = deviceToCart.listIterator();
         while (iterator.hasNext()) {
@@ -14,11 +15,10 @@ public class CartManager {
                 cart.userCart.add(device);
                 iterator.remove();
                 break;
-            }else{
-                System.out.println("Id non corretto");}
+            }
         }
     }
-    public static void outOfCart(int id){
+    public void outOfCart(int id){
 
         Iterator<Device> iterator = cart.userCart.iterator();
         while (iterator.hasNext()) {
@@ -27,9 +27,21 @@ public class CartManager {
                 deviceToCart.add(userCart);
                 iterator.remove();
                 break;
-            }else{
-                System.out.println("Id non corretto");
             }
         }
+    }
+
+    public BigDecimal totalCart() {
+        double total = 0.0;
+        for(Device device : cart.userCart) {
+            total += device.getSalesPrice();
+        }
+        return  BigDecimal.valueOf(total).setScale(2,0);
+    }
+
+    public void completePurchase(){
+        System.out.println("Prezzo totale: " + (totalCart()));
+        cart.userCart.clear();
+        System.out.println("Grazie dell'acquisto.");
     }
 }
