@@ -9,10 +9,6 @@ public class Device {
     private Double salesPrice;
     private String description;
 
-    public Device() {
-    }
-
-
     public Device(BuilderDevice builder) {
         this.type = builder.type;
         this.id = builder.id;
