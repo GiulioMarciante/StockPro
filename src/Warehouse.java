@@ -101,7 +101,7 @@ public class Warehouse {
         return typePrices;
     }
 
-    public List<Device> searchForPurchasePrice(double input) { 
+    public List<Device> searchForPurchasePrice(double input) {
 
         ArrayList<Device> result = new ArrayList<>();
 
@@ -145,10 +145,21 @@ public class Warehouse {
         }
         return result;
     }
-    public List<Device> addItem(DeviceTypes type, int id, String brand, String model, Double displayDimension, Double memoryDimension, Double purchasePrice, Double salesPrice) {
 
-        Device item = new Device(type, id, brand, model, displayDimension, memoryDimension, purchasePrice, salesPrice);
-        deviceList.add(item);
+    public List<Device> addItem(String type, int id, String brand, String model, Double displayDimension, Double memoryDimension, Double purchasePrice, Double salesPrice) {
+
+
+        if ("Notebook".equalsIgnoreCase(type) || "Smartphone".equalsIgnoreCase(type) || "Tablet".equalsIgnoreCase(type)) {
+            DeviceTypes deviceTypes = DeviceTypes.fromString(type);
+            BuilderDevice builder = new BuilderDevice(deviceTypes, id, brand, model, displayDimension, memoryDimension, purchasePrice, salesPrice);
+            Device item = builder.build();
+
+
+            deviceList.add(item);
+        } else {
+            System.out.println("Tipo errato.");
+        }
+
         return deviceList;
     }
 }
