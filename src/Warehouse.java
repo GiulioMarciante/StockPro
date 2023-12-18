@@ -3,17 +3,16 @@ import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class Warehouse {
-   private static DeviceFakeDB demoItems = new DeviceFakeDB();
+    private static DemoItems demoItems = new DemoItems();
     static List<Device> deviceList = demoItems.getDeviceList();
 
 
-    public static List<Device> itemsList() {
+    public List<Device> itemsList() {
         List<Device> fullDeviceList = new ArrayList<>();
         if (!deviceList.isEmpty()) {
-            for (Device device : deviceList) {
-                fullDeviceList.add(device);
-            }
+            fullDeviceList.addAll(deviceList);
 
         } else {
             System.out.println("Il magazzino è vuoto");
@@ -21,7 +20,7 @@ public class Warehouse {
         return fullDeviceList;
     }
 
-    public static List<Device> searchDeviceType(DeviceTypes type) {
+    public List<Device> searchDeviceType(DeviceTypes type) {
         boolean foundDevice = false;
         List<Device> searchDeviceTypeList = new ArrayList<>();
 
@@ -45,7 +44,7 @@ public class Warehouse {
         return searchDeviceTypeList;
     }
 
-    public static List<Device> searchDeviceBrand(String brand) {
+    public List<Device> searchDeviceBrand(String brand) {
         List<Device> searchBrandResult = new ArrayList<>();
         String brandLowerCase = brand.toLowerCase();
         for (Device device : deviceList) {
@@ -59,13 +58,13 @@ public class Warehouse {
         return searchBrandResult;
     }
 
-    public static List<Device> searchDeviceModel(String model) {
+    public List<Device> searchDeviceModel(String model) {
         List<Device> searchModelResult = new ArrayList<>();
         String modelLowerCase = model.toLowerCase();
         for (Device device : deviceList) {
             if (device.getModel().toLowerCase().equals(modelLowerCase)) {
                 searchModelResult.add(device);
-                System.out.println(searchModelResult + "\nPer aggiungere questo prodotto nel carrello selezionare: " + device.getId());
+                System.out.println("\nPer aggiungere questo prodotto nel carrello selezionare: " + device.getId());
             }
         }
         if (searchModelResult.isEmpty()) {
@@ -76,12 +75,7 @@ public class Warehouse {
 
     }
 
-    public static List<Device> calculateAverage(String type) {
-        try {
-            DeviceTypes.valueOf(type.toUpperCase());
-        } catch (IllegalArgumentException e) {
-            System.out.println("Tipo non valido: " + type);
-        }
+    public List<Device> calculateAverage(String type) {
 
         List<Device> typePrices = new ArrayList<>();
         double total = 0.0;
@@ -92,16 +86,14 @@ public class Warehouse {
 
                 typePrices.add(device);
                 total += device.getPurchasePrice();
+
             }
         }
         if (!typePrices.isEmpty()) {
+
             BigDecimal average = BigDecimal.valueOf(total / typePrices.size()).setScale(2, RoundingMode.HALF_EVEN);
             System.out.println("La media dei prezzi d'acquisto per " + type.toUpperCase() + " è: " + average);
             System.out.println("Hai ricercato i seguenti dispositivi: ");
-
-            for (Device device : typePrices) {
-                System.out.println(device);
-            }
 
         } else {
             System.out.println("Non ci sono dispositivi del tipo " + type.toUpperCase());
@@ -109,12 +101,12 @@ public class Warehouse {
         return typePrices;
     }
 
-    public static List<Device> searchForPurchasePrice(double abstractInput) {
+    public List<Device> searchForPurchasePrice(double input) { 
 
         ArrayList<Device> result = new ArrayList<>();
 
         for (Device device : deviceList) {
-            if (device.getPurchasePrice() <= abstractInput) {
+            if (device.getPurchasePrice() <= input) {
                 result.add(device);
             }
         }
@@ -124,12 +116,12 @@ public class Warehouse {
         return result;
     }
 
-    public static List<Device> searchForSalesPrice(double abstractInput) {
+    public List<Device> searchForSalesPrice(double input) {
 
         ArrayList<Device> result = new ArrayList<>();
 
         for (Device device : deviceList) {
-            if (device.getSalesPrice() <= abstractInput) {
+            if (device.getSalesPrice() <= input) {
                 result.add(device);
             }
         }
@@ -139,12 +131,12 @@ public class Warehouse {
         return result;
     }
 
-    public static List<Device> searchForRange(double minImput, double maxImput) { //cambiare nome quando viene definito dall'imput.
+    public List<Device> searchForRange(double minInput, double maxInput) {
 
-        ArrayList<Device> result = new ArrayList<>();
+        List<Device> result = new ArrayList<>();
 
         for (Device device : deviceList) {
-            if (device.getSalesPrice() >= minImput && device.getSalesPrice() <= maxImput) {
+            if (device.getSalesPrice() >= minInput && device.getSalesPrice() <= maxInput) {
                 result.add(device);
             }
         }
@@ -152,5 +144,11 @@ public class Warehouse {
             System.out.println("Nessun dispositivo trovato con questa corrispondenza");
         }
         return result;
+    }
+    public List<Device> addItem(DeviceTypes type, int id, String brand, String model, Double displayDimension, Double memoryDimension, Double purchasePrice, Double salesPrice) {
+
+        Device item = new Device(type, id, brand, model, displayDimension, memoryDimension, purchasePrice, salesPrice);
+        deviceList.add(item);
+        return deviceList;
     }
 }

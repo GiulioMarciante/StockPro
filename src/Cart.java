@@ -1,7 +1,8 @@
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 public class Cart {
-    static ArrayList<Device> userCart = new ArrayList<Device>();
+     List<Device> userCart = new ArrayList<Device>();
 
 }
