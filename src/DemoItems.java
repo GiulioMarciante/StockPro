@@ -22,10 +22,10 @@ public class DemoItems {
     Device device9 = new BuilderDevice(DeviceTypes.NOTEBOOK, 9, "MSI", "Katana 17 B12VGK", 17.3, 1000.0, 1200.0, 2199.99)
             .build();
 
-    private List<Device> deviceList;
+    private List<Device> deviceList = DemoItems();
 
-    public void DeviceFakeDB() {
-        deviceList = new ArrayList<>();
+    public List<Device> DemoItems(){
+        List<Device>deviceList = new ArrayList<>();
         deviceList.add(device1);
         deviceList.add(device2);
         deviceList.add(device3);
@@ -35,7 +35,9 @@ public class DemoItems {
         deviceList.add(device7);
         deviceList.add(device8);
         deviceList.add(device9);
+        return deviceList;
     }
+
     public List<Device> getDeviceList() {
         return deviceList;
     }
