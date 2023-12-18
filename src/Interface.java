@@ -1,7 +1,8 @@
 import java.util.Scanner;
 
 public class Interface {
-Warehouse warehouse = new Warehouse();
+    Warehouse warehouse = new Warehouse();
+    CartManager cartManager = new CartManager();
 
     public void createInterface() {
 
@@ -26,16 +27,16 @@ Warehouse warehouse = new Warehouse();
             System.out.println("3.Ricerca dispositivo per modello");
             System.out.println("4.Ricerca dispositivo per prezzo di vendita");
             System.out.println("5.Ricerca dispositivo per range di prezzo");
-            System.out.println("6.Non devo fare altro!");
+
             input = scanner.nextInt();
-            while (input != 1 && input != 2 && input != 3 && input != 4 && input != 5 && input != 6) {
+            while (input != 1 && input != 2 && input != 3 && input != 4 && input != 5 && input != 9) {
                 System.out.println("Inserimento non valido, inserisci uno di questi numeri!");
                 System.out.println("1.Item disponibili in Magazzino");
                 System.out.println("2.Ricerca dispositivo per brand");
                 System.out.println("3.Ricerca dispositivo per modello");
                 System.out.println("4.Ricerca dispositivo per prezzo di vendita");
                 System.out.println("5.Ricerca dispositivo per range di prezzo");
-                System.out.println("6.Non devo fare altro!");
+                System.out.println("9.Non devo fare altro!");
                 input = scanner.nextInt();
             }
             while (true) {
@@ -49,7 +50,14 @@ Warehouse warehouse = new Warehouse();
                     System.out.println("3.Ricerca dispositivo per modello");
                     System.out.println("4.Ricerca dispositivo per prezzo di vendita");
                     System.out.println("5.Ricerca dispositivo per range di prezzo");
-                    System.out.println("6.Non devo fare altro!");
+                    System.out.println("6.Inserisci Item nel carrello utilizzando l'id");
+                    System.out.println("7.Togli Item nel carrello utilizzando l'id");
+                    System.out.println("8.Finalizza acquisto");
+                    System.out.println("9.Non devo fare altro!");
+                    System.out.println();
+                    System.out.println("Questo è il tuo carrello al momento");
+                    Cart.userCart.forEach(System.out::println);
+
                     input = scanner.nextInt();
                 } else if (input == 2) {
                     System.out.println("Inserisci il nome del brand a cui sei interessato!");
@@ -61,7 +69,13 @@ Warehouse warehouse = new Warehouse();
                     System.out.println("3.Ricerca dispositivo per modello");
                     System.out.println("4.Ricerca dispositivo per prezzo di vendita");
                     System.out.println("5.Ricerca dispositivo per range di prezzo");
-                    System.out.println("6.Non devo fare altro!");
+                    System.out.println("6.Inserisci Item nel carrello utilizzando l'id");
+                    System.out.println("7.Togli Item nel carrello utilizzando l'id");
+                    System.out.println("8.Finalizza acquisto");
+                    System.out.println("9.Non devo fare altro!");
+                    System.out.println();
+                    System.out.println("Questo è il tuo carrello al momento");
+                    Cart.userCart.forEach(System.out::println);
                     input = scanner.nextInt();
 
                 } else if (input == 3) {
@@ -75,7 +89,13 @@ Warehouse warehouse = new Warehouse();
                     System.out.println("2.Ricerca dispositivo per brand");
                     System.out.println("4.Ricerca dispositivo per prezzo di vendita");
                     System.out.println("5.Ricerca dispositivo per range di prezzo");
-                    System.out.println("6.Non devo fare altro!");
+                    System.out.println("6.Inserisci Item nel carrello utilizzando l'id");
+                    System.out.println("7.Togli Item nel carrello utilizzando l'id");
+                    System.out.println("8.Finalizza acquisto");
+                    System.out.println("9.Non devo fare altro!");
+                    System.out.println();
+                    System.out.println("Questo è il tuo carrello al momento");
+                    Cart.userCart.forEach(System.out::println);
                     input = scanner.nextInt();
 
                 } else if (input == 4) {
@@ -88,7 +108,13 @@ Warehouse warehouse = new Warehouse();
                     System.out.println("2.Ricerca dispositivo per brand");
                     System.out.println("3.Ricerca dispositivo per modello");
                     System.out.println("5.Ricerca dispositivo per range di prezzo");
-                    System.out.println("6.Non devo fare altro!");
+                    System.out.println("6.Inserisci Item nel carrello utilizzando l'id");
+                    System.out.println("7.Togli Item nel carrello utilizzando l'id");
+                    System.out.println("8.Finalizza acquisto");
+                    System.out.println("9.Non devo fare altro!");
+                    System.out.println();
+                    System.out.println("Questo è il tuo carrello al momento");
+                    Cart.userCart.forEach(System.out::println);
                     input = scanner.nextInt();
 
                 } else if (input == 5) {
@@ -101,10 +127,61 @@ Warehouse warehouse = new Warehouse();
                     System.out.println("2.Ricerca dispositivo per brand");
                     System.out.println("3.Ricerca dispositivo per modello");
                     System.out.println("4.Ricerca dispositivo per prezzo di vendita");
-                    System.out.println("6.Non devo fare altro!");
+                    System.out.println("6.Inserisci Item nel carrello utilizzando l'id");
+                    System.out.println("7.Togli Item nel carrello utilizzando l'id");
+                    System.out.println("8.Finalizza acquisto");
+                    System.out.println("9.Non devo fare altro!");
+                    System.out.println();
+                    System.out.println("Questo è il tuo carrello al momento");
+                    Cart.userCart.forEach(System.out::println);
                     input = scanner.nextInt();
 
                 } else if (input == 6) {
+                    System.out.println("Inserisci l'id dell'oggetto che vuoi aggiungere al tuo carrello");
+                    cartManager.intoCart(scanner.nextInt());
+                    System.out.println("L'oggetto è stato aggiunto al tuo carrello");
+                    System.out.println();
+                    System.out.println("Vuoi fare altro?");
+                    System.out.println("1.Item disponibili in Magazzino");
+                    System.out.println("2.Ricerca dispositivo per brand");
+                    System.out.println("3.Ricerca dispositivo per modello");
+                    System.out.println("4.Ricerca dispositivo per prezzo di vendita");
+                    System.out.println("5.Ricerca dispositivo per range di prezzo");
+                    System.out.println("7.Togli Item nel carrello utilizzando l'id");
+                    System.out.println("8.Finalizza acquisto");
+                    System.out.println("9.Non devo fare altro!");
+                    System.out.println();
+                    System.out.println("Questo è il tuo carrello al momento");
+                    Cart.userCart.forEach(System.out::println);
+                    input = scanner.nextInt();
+
+                } else if (input == 7) {
+                    System.out.println("Inserisci l'id dell'oggetto che vuoi eliminare dal tuo carrello");
+                    cartManager.outOfCart(scanner.nextInt());
+                    System.out.println("L'oggetto è stato aggiunto al tuo carrello");
+                    System.out.println();
+                    System.out.println("Vuoi fare altro?");
+                    System.out.println("1.Item disponibili in Magazzino");
+                    System.out.println("2.Ricerca dispositivo per brand");
+                    System.out.println("3.Ricerca dispositivo per modello");
+                    System.out.println("4.Ricerca dispositivo per prezzo di vendita");
+                    System.out.println("5.Ricerca dispositivo per range di prezzo");
+                    System.out.println("6.Inserisci Item nel carrello utilizzando l'id");
+                    System.out.println("8.Finalizza acquisto");
+                    System.out.println("9.Non devo fare altro!");
+                    System.out.println();
+                    System.out.println("Questo è il tuo carrello al momento");
+                    Cart.userCart.forEach(System.out::println);
+                    input = scanner.nextInt();
+
+                } else if (input == 8) {
+                    System.out.println("8.Finalizza acquisto");
+                    cartManager.completePurchase();
+                    System.out.println("Buona giornata " + nome + "\n Grazie per avere acquistato da noi. Torna presto!");
+                   break;
+
+
+                } else if (input == 9) {
                     System.out.println("Buona giornata " + nome + "\n Torna presto!");
                     break;
 
@@ -115,7 +192,7 @@ Warehouse warehouse = new Warehouse();
                     System.out.println("3.Ricerca dispositivo per modello");
                     System.out.println("4.Ricerca dispositivo per prezzo di vendita");
                     System.out.println("5.Ricerca dispositivo per range di prezzo");
-                    System.out.println("6.Non devo fare altro!");
+                    System.out.println("9.Non devo fare altro!");
                     input = scanner.nextInt();
                 }
             }
@@ -163,12 +240,13 @@ Warehouse warehouse = new Warehouse();
                                 System.out.println("5.Non devo fare altro!");
                                 input = scanner.nextInt();
                             } else if (input == 2) {
-                                System.out.println("Inserisci (l'Id)? dell'item da aggiungere al magazzino");
-                                System.out.println("Questo è il risultato della tua ricerca!");
+                                System.out.println("Inserisci le informazioni dell'item da aggiungere al magazzino seguendo l'ordine dell'esempio, premendo invio per ogni dato inserito");
+                                System.out.println("Nootebook(tipo), 3(id), hp(brand), pavillion(modello), 15,6(dimensione display), 500,0(dimensione memoria), 200,0(prezzo di acquisto), 500,0(prezzo di vendita)");
+                                warehouse.addItem(scanner.next(),scanner.nextInt(),scanner.next(),scanner.next(),scanner.nextDouble(),scanner.nextDouble(),scanner.nextDouble(),scanner.nextDouble());
                                 System.out.println();
-
                                 System.out.println("Vuoi fare altro?");
                                 System.out.println("1.Controlla Item in Magazzino");
+                                System.out.println("2.Inserisci un altro Item");
                                 System.out.println("3.Ricerca per prezzo di acquisto");
                                 System.out.println("4.Ricerca spesa media per tipo di dispositivo");
                                 System.out.println("5.Non devo fare altro!");

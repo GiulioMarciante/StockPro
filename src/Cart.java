@@ -3,6 +3,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class Cart {
-     List<Device> userCart = new ArrayList<Device>();
+    static List<Device> userCart = new ArrayList<>();
+
 
 }
