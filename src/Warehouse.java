@@ -46,9 +46,6 @@ public class Warehouse {
                 searchBrandResult.add(device);
             }
         }
-        if (searchBrandResult.isEmpty()) {
-            System.out.println("Non ci sono prodotti con queste caratteristiche al momento in magazzino");
-        }
         return searchBrandResult;
     }
 
@@ -58,12 +55,7 @@ public class Warehouse {
         for (Device device : deviceList) {
             if (device.getModel().toLowerCase().equals(modelLowerCase)) {
                 searchModelResult.add(device);
-                System.out.println("\nPer aggiungere questo prodotto nel carrello selezionare: " + device.getId());
             }
-        }
-        if (searchModelResult.isEmpty()) {
-            System.out.println("Non ci sono prodotti con queste caratteristiche al momento in magazzino");
-
         }
         return searchModelResult;
 
@@ -119,9 +111,6 @@ public class Warehouse {
                 result.add(device);
             }
         }
-        if (result.isEmpty()) {
-            System.out.println("Nessun dispositivo trovato con questa corrispondenza");
-        }
         return result;
     }
 
@@ -142,7 +131,6 @@ public class Warehouse {
 
     public void addItem(String type, String brand, String model, Double displayDimension, Double memoryDimension, Double purchasePrice, Double salesPrice) {
 
-
         if ("Notebook".equalsIgnoreCase(type) || "Smartphone".equalsIgnoreCase(type) || "Tablet".equalsIgnoreCase(type)) {
             DeviceTypes deviceTypes = DeviceTypes.fromString(type);
             BuilderDevice builder = new BuilderDevice(deviceTypes, brand, model, displayDimension, memoryDimension, purchasePrice, salesPrice);
@@ -152,5 +140,7 @@ public class Warehouse {
             System.out.println("Tipo errato.");
         }
     }
+
+
 
 }
