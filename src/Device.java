@@ -1,5 +1,6 @@
 public class Device {
     private DeviceTypes type;
+    private static int nextId = 1;
     private int id;
     private String brand;
     private String model;
@@ -11,7 +12,7 @@ public class Device {
 
     public Device(BuilderDevice builder) {
         this.type = builder.type;
-        this.id = builder.id;
+        this.id = nextId++;
         this.brand = builder.brand;
         this.model = builder.model;
         this.displayDimension = builder.displayDimension;

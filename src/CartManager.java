@@ -3,9 +3,10 @@ import java.math.RoundingMode;
 import java.util.Iterator;
 import java.util.List;
 public class CartManager {
-    static DemoItems demoItems = new DemoItems();
+//    static DemoItems demoItems = new DemoItems();
 
-    static List<Device> deviceToCart = demoItems.getDeviceList();
+
+    static List<Device> deviceToCart = Warehouse.deviceList;
     static Cart cart = new Cart();
 
     public void intoCart(int id) {

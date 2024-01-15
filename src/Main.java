@@ -1,19 +1,18 @@
 public class Main {
 
- static Interface anInterface = new Interface();
-//
-//    public static void main(String[] args) {
-//        anInterface.createInterface();
-//
-//    }
-    static  Warehouse warehouse = new Warehouse();
-
     public static void main(String[] args) {
+        Warehouse warehouse = new Warehouse();
+        CartManager cartManager = new CartManager();
+        Cart cart = new Cart();
 
-        anInterface.createInterface();
 
-
-//        warehouse.addItem("Smartphone", 23, "Samsung", "A34", 6.5, 126.0, 100.0, 400.0);
-//        warehouse.itemsList().forEach(System.out::println);
+//        Choice.mainChoice();
+//        System.out.println(warehouse.itemsList());
+//        cartManager.intoCart(2);
+//        System.out.println(Cart.userCart);
+        warehouse.addItem("Notebook","gesgwe","ergh",12.6, 23.6, 123.56, 345.8);
+        System.out.println(warehouse.itemsList());
+        cartManager.intoCart(10);
+        System.out.println(Cart.userCart);
     }
 }

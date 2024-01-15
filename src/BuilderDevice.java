@@ -1,6 +1,7 @@
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class BuilderDevice {
     DeviceTypes type;
-    int id;
     String brand;
     String model;
     Double displayDimension;
@@ -9,9 +10,8 @@ public class BuilderDevice {
     Double salesPrice;
     String description;
 
-    public BuilderDevice(DeviceTypes type, int id, String brand, String model, Double displayDimension, Double memoryDimension, Double purchasePrice, Double salesPrice) {
+    public BuilderDevice(DeviceTypes type, String brand, String model, Double displayDimension, Double memoryDimension, Double purchasePrice, Double salesPrice) {
         this.type = type;
-        this.id = id;
         this.brand = brand;
         this.model = model;
         this.displayDimension = displayDimension;
