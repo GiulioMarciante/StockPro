@@ -10,19 +10,17 @@ public abstract class Users implements Runnable{
 
         System.out.println("Inserisci il tuo nome");
         String nome = scanner.next();
-        System.out.println("Ciao " + nome + ", che ricerca vuoi effettuare?");
-        System.out.println("1.Item disponibili in Magazzino");
-        System.out.println("2.Ricerca dispositivo per brand");
-        System.out.println("3.Ricerca dispositivo per modello");
-        System.out.println("4.Ricerca dispositivo per prezzo di vendita");
-        System.out.println("5.Ricerca dispositivo per range di prezzo");
-        System.out.println("6. Esci");
+
+        selectInput (nome);
 
         int input = scanner.nextInt();
 
         switch (input) {
             case 1:
-                warehouse.itemsList();
+                if(warehouse.deviceList.isEmpty()) {
+                    System.out.println("Il magazzino è vuoto");
+                    selectInput (nome);
+                }else {warehouse.itemsList().forEach(System.out::println); selectInput (nome);}
                 break;
             case 2:
                 checkBrand();
@@ -43,6 +41,17 @@ public abstract class Users implements Runnable{
                 System.out.println("Opzione non valida. Riprova.");
                 break;
         }
+    }
+    public void selectInput(String nome) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println ("Ciao " + nome + ", che ricerca vuoi effettuare?");
+        System.out.println ("1.Item disponibili in Magazzino");
+        System.out.println ("2.Ricerca dispositivo per brand");
+        System.out.println ("3.Ricerca dispositivo per modello");
+        System.out.println ("4.Ricerca dispositivo per prezzo di vendita");
+        System.out.println ("5.Ricerca dispositivo per range di prezzo");
+        System.out.println ("6. Esci");
+        int input = scanner.nextInt();
     }
     public void checkBrand(){
 

@@ -11,14 +11,7 @@ public class Warehouse {
 
 
     public List<Device> itemsList() {
-        List<Device> fullDeviceList = new ArrayList<>();
-        if (!deviceList.isEmpty()) {
-            fullDeviceList.addAll(deviceList);
-
-        } else {
-            System.out.println("Il magazzino è vuoto");
-        }
-        return fullDeviceList;
+        return new ArrayList<>(deviceList);
     }
 
     public List<Device> searchDeviceType(DeviceTypes type) {
