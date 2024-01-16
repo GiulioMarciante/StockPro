@@ -1,8 +1,7 @@
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public abstract class Users implements Runnable{
+public abstract class MenuUsers implements Runnable{
 
     Warehouse warehouse = new Warehouse();
 
@@ -59,7 +58,11 @@ public abstract class Users implements Runnable{
                     checkSalesPrice(salesPrice);
                     break;
                 case 6:
-
+                    System.out.println ("Scrivi e invia il primo input per la ricerca");
+                    Double inputOne = scanner.nextDouble ();
+                    System.out.println ("Scrivi e invia il secondo input per la ricerca");
+                    Double inputTwo = scanner.nextDouble ();
+                    checkForRangePrice(inputOne,inputTwo);
                     break;
                 case 7:
 
@@ -77,18 +80,18 @@ public abstract class Users implements Runnable{
                     System.out.println("Opzione non valida. Riprova.");
                     break;
             }
-        } while (intInput != 9||intInput != 10);
+        } while ((intInput != 9) && (intInput != 10));
                 scanner.close ();
     }
 
 
     public void checkFullItemList() {
-        if(warehouse.deviceList.isEmpty()) {
+        if(warehouse.productList.isEmpty()) {
             System.out.println("Il magazzino è vuoto");
         }else {warehouse.itemsList().forEach(System.out::println);}
     }
     public void checkBrand(String brand){
-        List<Device> searchBrandResult = warehouse.searchDeviceBrand (brand);
+        List<Product> searchBrandResult = warehouse.searchDeviceBrand (brand);
         if (searchBrandResult.isEmpty ()){
             System.out.println ("Non abbiamo questo brand");
         }else {
@@ -96,7 +99,7 @@ public abstract class Users implements Runnable{
         }
     }
     public void checkModel(String model){
-        List<Device> searchModelResult = warehouse.searchDeviceModel (model);
+        List<Product> searchModelResult = warehouse.searchDeviceModel (model);
         if (searchModelResult.isEmpty ()){
             System.out.println ("Non abbiamo questo modello o scrivere correttamente rispettando gli spazi");
         }else {
@@ -105,8 +108,8 @@ public abstract class Users implements Runnable{
     }
     public void checkDeviceForType(String inputType){
         try {
-            DeviceTypes deviceType = DeviceTypes.valueOf(inputType.toUpperCase());
-            List<Device> searchTypeResult = warehouse.searchDeviceType(deviceType);
+            ProductTypes deviceType = ProductTypes.valueOf(inputType.toUpperCase());
+            List<Product> searchTypeResult = warehouse.searchDeviceType(deviceType);
 
             if (searchTypeResult.isEmpty()) {
                 System.out.println("Non abbiamo questo tipo di oggetto");
@@ -119,7 +122,7 @@ public abstract class Users implements Runnable{
     }
     public void checkSalesPrice(Double salesPrice){
 
-        List<Device> result = warehouse.searchForSalesPrice (salesPrice);
+        List<Product> result = warehouse.searchForSalesPrice (salesPrice);
 
         if (result.isEmpty ()){
             System.out.println ("Nessun dispositivo con questo requisito");
@@ -127,6 +130,16 @@ public abstract class Users implements Runnable{
             result.forEach (System.out::println);
         }
     }
+    public void checkForRangePrice(double inputOne, double inputTwo){
 
+        List<Product> result = warehouse.searchForRange (inputOne, inputTwo);
+
+        if (result.isEmpty ()){
+            System.out.println ("Nessun dispositivo trovato in questo range di prezzo");
+        }else {
+
+            result.forEach (System.out::println);
+        }
+    }
 
 }

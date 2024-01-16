@@ -6,16 +6,16 @@ public class CartManager {
 //    static DemoItems demoItems = new DemoItems();
 
 
-    static List<Device> deviceToCart = Warehouse.deviceList;
+    static List<Product> productToCart = Warehouse.productList;
     static Cart cart = new Cart();
 
     public void intoCart(int id) {
 
-        Iterator<Device> iterator = deviceToCart.listIterator();
+        Iterator<Product> iterator = productToCart.listIterator();
         while (iterator.hasNext()) {
-            Device device = iterator.next();
-            if (id == device.getId()) {
-                cart.userCart.add(device);
+            Product product = iterator.next();
+            if (id == product.getId()) {
+                cart.userCart.add(product);
                 iterator.remove();
                 break;
             }
@@ -23,11 +23,11 @@ public class CartManager {
     }
     public void outOfCart(int id){
 
-        Iterator<Device> iterator = cart.userCart.iterator();
+        Iterator<Product> iterator = cart.userCart.iterator();
         while (iterator.hasNext()) {
-            Device userCart = iterator.next();
+            Product userCart = iterator.next();
             if (id == userCart.getId()) {
-                deviceToCart.add(userCart);
+                productToCart.add(userCart);
                 iterator.remove();
                 break;
             }
@@ -36,8 +36,8 @@ public class CartManager {
 
     public BigDecimal totalCart() {
         double total = 0.0;
-        for(Device device : cart.userCart) {
-            total += device.getSalesPrice();
+        for(Product product : cart.userCart) {
+            total += product.getSalesPrice();
         }
         return BigDecimal.valueOf(total).setScale(2, RoundingMode.HALF_EVEN);
     }

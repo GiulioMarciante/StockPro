@@ -1,10 +1,10 @@
 import java.util.Scanner;
 
-public class Choice {
+public class MenuChoice {
     public static void mainChoice() {
 
-        Users user = new Users() {};
-        Manager manager = new Manager() {};
+        MenuUsers user = new MenuUsers () {};
+        MenuManager menuManager = new MenuManager () {};
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Sei utente o magazziniere?");
@@ -21,7 +21,7 @@ public class Choice {
         if (input == 1) {
             user.run();
         }else if(input==2){
-            manager.run();
+            menuManager.run();
         }
     }
 }

@@ -25,7 +25,7 @@ class WarehouseTest {
     void checkIfSearchForPurchasePriceInputIsNegative(){
         double input = -1.0;
 
-        List<Device> result = warehouse.searchForPurchasePrice(input);
+        List<Product> result = warehouse.searchForPurchasePrice(input);
 
         Assertions.assertEquals(result, Collections.emptyList());
     }

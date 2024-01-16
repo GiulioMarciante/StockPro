@@ -1,6 +1,6 @@
-public class Smartphone extends Device {
+public class Smartphone extends Product {
 
-    Smartphone(BuilderDevice builder) {
+    Smartphone(ProductBuilder builder) {
         super(builder);
     }
 }

@@ -1,5 +1,5 @@
-public class Device {
-    private DeviceTypes type;
+public class Product {
+    private ProductTypes type;
     private static int nextId = 1;
     private int id;
     private String brand;
@@ -10,7 +10,7 @@ public class Device {
     private Double salesPrice;
     private String description;
 
-    public Device(BuilderDevice builder) {
+    public Product(ProductBuilder builder) {
         this.type = builder.type;
         this.id = nextId++;
         this.brand = builder.brand;
@@ -23,7 +23,7 @@ public class Device {
     }
 
 
-    public Device(DeviceTypes type, int id, String brand, String model, double displayDimension, double memoryDimension, double purchasePrice, double salesPrice) {
+    public Product(ProductTypes type, int id, String brand, String model, double displayDimension, double memoryDimension, double purchasePrice, double salesPrice) {
     }
 
     @Override
@@ -39,11 +39,11 @@ public class Device {
                 '}';
     }
 
-    public DeviceTypes getType() {
+    public ProductTypes getType() {
         return type;
     }
 
-    public void setType(DeviceTypes type) {
+    public void setType(ProductTypes type) {
         this.type = type;
     }
 
