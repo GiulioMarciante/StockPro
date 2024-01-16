@@ -1,7 +1,8 @@
 public class Product {
-    private ProductTypes type;
     private static int nextId = 1;
+
     private int id;
+    private ProductTypes type;
     private String brand;
     private String model;
     private Double displayDimension;
@@ -10,27 +11,27 @@ public class Product {
     private Double salesPrice;
     private String description;
 
-    public Product(ProductBuilder builder) {
-        this.type = builder.type;
+    public Product(ProductTypes type, String brand, String model, Double displayDimension, Double memoryDimension, Double purchasePrice, Double salesPrice, String description ) {
         this.id = nextId++;
-        this.brand = builder.brand;
-        this.model = builder.model;
-        this.displayDimension = builder.displayDimension;
-        this.memoryDimension = builder.memoryDimension;
-        this.purchasePrice = builder.purchasePrice;
-        this.salesPrice = builder.salesPrice;
-        this.description = builder.description;
+        this.type = type;
+        this.brand = brand;
+        this.model = model;
+        this.displayDimension = displayDimension;
+        this.memoryDimension = memoryDimension;
+        this.purchasePrice = purchasePrice;
+        this.salesPrice = salesPrice;
+        this.description = description;
     }
 
 
-    public Product(ProductTypes type, int id, String brand, String model, double displayDimension, double memoryDimension, double purchasePrice, double salesPrice) {
-    }
+//    public Product(int id, ProductTypes type, String brand, String model, double displayDimension, double memoryDimension, double purchasePrice, double salesPrice) {
+//    }
 
     @Override
     public String toString() {
         return "Device{" +
-                "type=" + type +
-                ", id=" + id +
+                "id=" + id +
+                ", type=" + type +
                 ", brand='" + brand + '\'' +
                 ", model='" + model + '\'' +
                 ", displayDimension=" + displayDimension +
@@ -97,6 +98,14 @@ public class Product {
 
     public Double getSalesPrice() {
         return salesPrice;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public void setSalesPrice(Double salesPrice) {

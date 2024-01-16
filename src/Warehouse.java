@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+
 public class Warehouse {
     private static DemoItems demoItems = new DemoItems();
     static List<Product> productList = demoItems.getDeviceList();
@@ -124,12 +125,22 @@ public class Warehouse {
         return result;
     }
 
-    public void addItem(String type, String brand, String model, Double displayDimension, Double memoryDimension, Double purchasePrice, Double salesPrice) {
+    public void addItem(String type, String brand, String model, Double displayDimension, Double memoryDimension, Double purchasePrice, Double salesPrice, String description) {
 
         if ("Notebook".equalsIgnoreCase(type) || "Smartphone".equalsIgnoreCase(type) || "Tablet".equalsIgnoreCase(type)) {
-            ProductTypes productTypes = ProductTypes.fromString(type);
-            ProductBuilder builder = new ProductBuilder (productTypes, brand, model, displayDimension, memoryDimension, purchasePrice, salesPrice);
-            Product item = builder.build();
+//            ProductTypes productTypes = ProductTypes.fromString(type);
+            Product product = new ProductBuilder()
+                    .type(ProductTypes.valueOf(type))
+                    .brand(brand)
+                    .model(model)
+                    .displayDimension(displayDimension)
+                    .memoryDimension(memoryDimension)
+                    .purchasePrice(purchasePrice)
+                    .salesPrice(salesPrice)
+                    .build();
+
+
+            Product item = product.build();
             productList.add(item);
         } else {
             System.out.println("Tipo errato.");

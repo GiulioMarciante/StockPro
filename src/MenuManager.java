@@ -1,10 +1,12 @@
 import java.util.Scanner;
 
 public abstract class MenuManager implements Runnable {
+    Warehouse warehouse = new Warehouse();
+    CartManager cartManager = new CartManager();
     @Override
     public void run() {
         Scanner scanner = new Scanner(System.in);
-        Warehouse warehouse = new Warehouse();
+
 
         System.out.println("Benvenuto Magazziniere!");
 
@@ -19,13 +21,33 @@ public abstract class MenuManager implements Runnable {
 
             switch (choice) {
                 case 1:
-                    warehouse.itemsList();
+                    checkFullItemList();
                     break;
                 case 2:
+                    System.out.println("Inserisci il tipo");
+                    String type = scanner.next();
+                    System.out.println("Inserisci il brand");
+                    String brand = scanner.next();
+                    scanner.nextLine();
+                    System.out.println("Inserisci il modello");
+                    String model = scanner.nextLine();
+                    System.out.println("Inserisci dimensione display");
+                    double display = scanner.nextDouble();
+                    System.out.println("Inserisci dimensione memoria");
+                    double memory = scanner.nextDouble();
+                    System.out.println("Inserisci prezzo di acquisto");
+                    double purPrice = scanner.nextDouble();
+                    System.out.println("Inserisci prezzo di vendita");
+                    double selPrice = scanner.nextDouble();
+                    scanner.nextLine();
+                    System.out.println("Inserisci la descrizione del prodotto.(Per saltare questo punto premi invio)");
+                    String description = scanner.nextLine();
                     insertItem();
                     break;
                 case 3:
-                    searchByPurchasePrice();
+                    System.out.println("Inserisci il prezzo da cercare nel magazzino");
+                    double purchasePrice = scanner.nextDouble();
+                    searchByPurchasePrice(purchasePrice);
                     break;
                 case 4:
                     searchAverageExpense();
@@ -40,10 +62,17 @@ public abstract class MenuManager implements Runnable {
         }
 
     }
+    public void checkFullItemList() {
+        if (warehouse.productList.isEmpty()) {
+            System.out.println("Il magazzino è vuoto");
+        } else {
+            warehouse.itemsList().forEach(System.out::println);
+        }
+    }
     public void insertItem(){
 
     }
-    public void searchByPurchasePrice(){
+    public void searchByPurchasePrice(double purchasePrice){
 
     }
     public void  searchAverageExpense(){
