@@ -66,7 +66,6 @@ public class Warehouse {
         List<Device> typePrices = new ArrayList<>();
         double total = 0.0;
 
-
         for (Device device : deviceList) {
             if (device.getType().name().equals(type.toUpperCase())) {
 
