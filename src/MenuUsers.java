@@ -162,43 +162,29 @@ public abstract class MenuUsers implements Runnable {
         int initialCartSize = cart.userCart.size();
         List<Product> updatedCart = cartManager.intoCart(idToPut);
         int finalCartSize = cart.userCart.size();
-        if (finalCartSize > initialCartSize) {
-            System.out.println("Il prodotto è stato inserito correttamente nel carrello\n");
-            System.out.println("Carrello aggiornato:\n");
-            for (Product product : updatedCart) {
-                System.out.println(product);
-                System.out.println();
-            }
-        } else {
-            System.out.println("L'id inserito non è esistente \n");
-            System.out.println("Carrello attuale: \n");
-            for (Product product : updatedCart) {
-                System.out.println(product);
-                System.out.println();
-            }
-        }
 
+        String message = (finalCartSize > initialCartSize) ?
+                "Il prodotto è stato inserito correttamente nel carrello\n" :
+                "L'id inserito non è esistente\n";
+
+        System.out.println(message + "\nCarrello attuale:\n");
+        updatedCart.forEach(product -> {
+            System.out.println(product);
+            System.out.println();
+        });
     }
 
     public void removeToCart(int idToRemove) {
         int initialCartSize = cart.userCart.size();
         List<Product> updatedCart = cartManager.outOfCart(idToRemove);
         int finalCartSize = cart.userCart.size();
-        if (finalCartSize < initialCartSize) {
-            System.out.println("Il prodotto è stato rimosso correttamente dal carrello\n");
-            System.out.println("Carrello aggiornato:\n");
-            for (Product product : updatedCart) {
-                System.out.println(product);
-                System.out.println();
-            }
-        } else {
-            System.out.println("L'id inserito non è esistente o non è presente nel carrello \n");
-            System.out.println("Carrello attuale: \n");
-            for (Product product : updatedCart) {
-                System.out.println(product);
-                System.out.println();
-            }
-        }
+
+        String message = (finalCartSize < initialCartSize) ?
+                "Il prodotto è stato rimosso correttamente dal carrello\n" :
+                "L'id inserito non è esistente o non è presente nel carrello\n";
+
+        System.out.println(message + "\nCarrello attuale:\n");
+        updatedCart.forEach(product -> System.out.println(product + "\n"));
     }
 
     public void completeCheckout() {
