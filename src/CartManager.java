@@ -43,8 +43,6 @@ public class CartManager {
     }
 
     public void completePurchase(){
-        System.out.println("Prezzo totale: " + (totalCart()));
         cart.userCart.clear();
-        System.out.println("Grazie dell'acquisto.");
     }
 }

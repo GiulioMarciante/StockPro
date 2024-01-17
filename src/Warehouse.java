@@ -3,8 +3,6 @@ import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
 public class Warehouse {
     private static DemoItems demoItems = new DemoItems();
     static List<Product> productList = demoItems.getDeviceList();
@@ -61,7 +59,6 @@ public class Warehouse {
 
         List<Product> typePrices = new ArrayList<>();
         double total = 0.0;
-
 
         for (Product product : productList) {
             if (product.getType().name().equals(type.toUpperCase())) {
@@ -137,7 +134,6 @@ public class Warehouse {
                 Product product = new ProductBuilder(productTypes, brand, model, displayDimension, memoryDimension, purchasePrice, salesPrice)
                         .description("Descrizione non inserita")
                         .build();
-
                 productList.add(product);
             }
         }
