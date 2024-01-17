@@ -1,8 +1,7 @@
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public abstract class Users implements Runnable{
+public abstract class MenuUsers implements Runnable{
 
     Warehouse warehouse = new Warehouse();
 
@@ -80,8 +79,6 @@ public abstract class Users implements Runnable{
         } while (intInput != 9||intInput != 10);
                 scanner.close ();
     }
-
-
     public void checkFullItemList() {
         if(warehouse.deviceList.isEmpty()) {
             System.out.println("Il magazzino è vuoto");
@@ -127,6 +124,4 @@ public abstract class Users implements Runnable{
             result.forEach (System.out::println);
         }
     }
-
-
 }

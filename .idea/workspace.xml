@@ -4,12 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7155a5e-92b7-4057-b55f-d2667d7fd195" name="Changes" comment="Risolto i problemi per il merge del Branch di Simone">
+    <list default="true" id="a7155a5e-92b7-4057-b55f-d2667d7fd195" name="Changes" comment="Da finire solo l'interfaccia per utente e magazziniere 2.0">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DemoItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DemoItems.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Choice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MenuChoice.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MenuManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MenuUsers.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Warehouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Warehouse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/WarehouseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WarehouseTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,7 +21,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="SimoneBranch" />
+        <entry key="$PROJECT_DIR$" value="GabriBranch" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -42,7 +44,6 @@
 }</component>
   <component name="ProjectId" id="2Zg51ABEgpwddjmH1HjgLvPlyzK" />
   <component name="ProjectLevelVcsManager">
-    <OptionsSetting value="false" id="Update" />
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -52,14 +53,17 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
+    "JUnit.WarehouseTest.checkESERCIZIOSearchForPurchasePrice.executor": "Run",
+    "JUnit.WarehouseTest.checkIfSearchForPurchasePriceInputIsNegative.executor": "Run",
+    "JUnit.WarehouseTest.checkNotVoidSearchForPurchasePrice.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "GabriBranch",
+    "git-widget-placeholder": "LisaBranch",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.WarehouseTest.checkNotVoidSearchForPurchasePrice">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Progetto2" />
@@ -67,10 +71,41 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="WarehouseTest.checkESERCIZIOSearchForPurchasePrice" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Progetto2" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="WarehouseTest" />
+      <option name="METHOD_NAME" value="checkESERCIZIOSearchForPurchasePrice" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WarehouseTest.checkIfSearchForPurchasePriceInputIsNegative" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Progetto2" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="WarehouseTest" />
+      <option name="METHOD_NAME" value="checkIfSearchForPurchasePriceInputIsNegative" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WarehouseTest.checkNotVoidSearchForPurchasePrice" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Progetto2" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="WarehouseTest" />
+      <option name="METHOD_NAME" value="checkNotVoidSearchForPurchasePrice" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.WarehouseTest.checkNotVoidSearchForPurchasePrice" />
+        <item itemvalue="JUnit.WarehouseTest.checkIfSearchForPurchasePriceInputIsNegative" />
+        <item itemvalue="JUnit.WarehouseTest.checkESERCIZIOSearchForPurchasePrice" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
       </list>

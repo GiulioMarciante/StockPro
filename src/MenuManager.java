@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public abstract class Manager implements Runnable {
+public abstract class MenuManager implements Runnable {
     @Override
     public void run() {
         Scanner scanner = new Scanner(System.in);

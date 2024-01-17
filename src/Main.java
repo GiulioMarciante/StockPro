@@ -6,7 +6,7 @@ public class Main {
 //        Cart cart = new Cart();
 
 
-        Choice.mainChoice();
+        MenuChoice.mainChoice();
 //        System.out.println(warehouse.itemsList());
 //        cartManager.intoCart(2);
 //        System.out.println(Cart.userCart);

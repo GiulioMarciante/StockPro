@@ -119,12 +119,15 @@ public class Warehouse {
         List<Device> result = new ArrayList<>();
 
         for (Device device : deviceList) {
-            if (device.getSalesPrice() >= minInput && device.getSalesPrice() <= maxInput) {
+            if(minInput>maxInput) {
+                if (device.getSalesPrice() >= maxInput && device.getSalesPrice() <= minInput) {
+                    result.add(device);
+                }
+            }else{
+                if (device.getSalesPrice() >= minInput && device.getSalesPrice() <= maxInput) {
                 result.add(device);
+                }
             }
-        }
-        if (result.isEmpty()) {
-            System.out.println("Nessun dispositivo trovato con questa corrispondenza");
         }
         return result;
     }
