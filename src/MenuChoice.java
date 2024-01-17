@@ -2,9 +2,9 @@ import java.util.Scanner;
 
 public class MenuChoice {
     public static void mainChoice() {
+        MenuUsers menuUsers = new MenuUsers() {};
+        MenuManager menuManager = new MenuManager() {};
 
-        MenuUsers user = new MenuUsers () {};
-        MenuManager menuManager = new MenuManager () {};
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Sei utente o magazziniere?");
@@ -19,7 +19,7 @@ public class MenuChoice {
             }
         }
         if (input == 1) {
-            user.run();
+            menuUsers.run();
         }else if(input==2){
             menuManager.run();
         }
