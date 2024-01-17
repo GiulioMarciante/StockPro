@@ -1,10 +1,10 @@
-public enum DeviceTypes {
+public enum ProductTypes {
     TABLET,
     SMARTPHONE,
     NOTEBOOK;
 
-    public static DeviceTypes fromString(String value) {
-        for (DeviceTypes type : DeviceTypes.values()) {
+    public static ProductTypes fromString(String value) {
+        for (ProductTypes type : ProductTypes.values()) {
             if (type.name().equalsIgnoreCase(value)) {
                 return type;
             }

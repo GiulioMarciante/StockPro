@@ -1,6 +1,6 @@
-public class Notebook extends Device {
+public class Notebook extends Product {
 
-    Notebook(BuilderDevice builder) {
+    Notebook(ProductBuilder builder) {
         super(builder);
     }
 }
