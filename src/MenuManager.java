@@ -32,17 +32,18 @@ public abstract class MenuManager implements Runnable {
                     System.out.println("Inserisci il modello");
                     String model = scanner.nextLine();
                     System.out.println("Inserisci dimensione display");
-                    double display = scanner.nextDouble();
+                    Double display = scanner.nextDouble();
                     System.out.println("Inserisci dimensione memoria");
-                    double memory = scanner.nextDouble();
+                    Double memory = scanner.nextDouble();
                     System.out.println("Inserisci prezzo di acquisto");
-                    double purPrice = scanner.nextDouble();
+                    Double purPrice = scanner.nextDouble();
                     System.out.println("Inserisci prezzo di vendita");
-                    double selPrice = scanner.nextDouble();
+                    Double selPrice = scanner.nextDouble();
                     scanner.nextLine();
-                    System.out.println("Inserisci la descrizione del prodotto.(Per saltare questo punto premi invio)");
+                    System.out.println("Inserisci la descrizione del prodotto.(La descrizione è facoltativa, se non si vuole inserire premere solo invio)");
                     String description = scanner.nextLine();
-                    insertItem();
+                    insertItem(type, brand, model, display, memory, purPrice, selPrice, description);
+                    System.out.println("Il prodotto è stato aggiunto al carrello! Arrivederci");
                     break;
                 case 3:
                     System.out.println("Inserisci il prezzo da cercare nel magazzino");
@@ -69,8 +70,12 @@ public abstract class MenuManager implements Runnable {
             warehouse.itemsList().forEach(System.out::println);
         }
     }
-    public void insertItem(){
-
+    public void insertItem(String type,String brand,String model,Double display,Double memory,Double purPrice,Double selPrice,String description){
+    if ("Notebook".equalsIgnoreCase(type) || "Smartphone".equalsIgnoreCase(type) || "Tablet".equalsIgnoreCase(type)){
+        warehouse.addItem(type, brand,model,display, memory, purPrice, selPrice, description);
+        } else {
+        System.out.println("Questo tipo di prodotto non esiste, è possibile aggiungere solo uno dei seguenti tipi:(Notebook, Smartphone, Tablet)");
+    }
     }
     public void searchByPurchasePrice(double purchasePrice){
 

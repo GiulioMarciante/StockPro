@@ -112,11 +112,11 @@ public class Warehouse {
         List<Product> result = new ArrayList<>();
 
         for (Product product : productList) {
-            if(minInput>maxInput) {
+            if (minInput > maxInput) {
                 if (product.getSalesPrice() >= maxInput && product.getSalesPrice() <= minInput) {
                     result.add(product);
                 }
-            }else{
+            } else {
                 if (product.getSalesPrice() >= minInput && product.getSalesPrice() <= maxInput) {
                     result.add(product);
                 }
@@ -126,27 +126,24 @@ public class Warehouse {
     }
 
     public void addItem(String type, String brand, String model, Double displayDimension, Double memoryDimension, Double purchasePrice, Double salesPrice, String description) {
-
         if ("Notebook".equalsIgnoreCase(type) || "Smartphone".equalsIgnoreCase(type) || "Tablet".equalsIgnoreCase(type)) {
-//            ProductTypes productTypes = ProductTypes.fromString(type);
-            Product product = new ProductBuilder()
-                    .type(ProductTypes.valueOf(type))
-                    .brand(brand)
-                    .model(model)
-                    .displayDimension(displayDimension)
-                    .memoryDimension(memoryDimension)
-                    .purchasePrice(purchasePrice)
-                    .salesPrice(salesPrice)
-                    .build();
+            ProductTypes productTypes = ProductTypes.fromString(type);
 
+            if (description != null) {
+                Product product = new ProductBuilder(productTypes, brand, model, displayDimension, memoryDimension, purchasePrice, salesPrice).description(description).build();
 
-            Product item = product.build();
-            productList.add(item);
-        } else {
-            System.out.println("Tipo errato.");
+                productList.add(product);
+            } else {
+                Product product = new ProductBuilder(productTypes, brand, model, displayDimension, memoryDimension, purchasePrice, salesPrice).build();
+
+                productList.add(product);
+            }
         }
     }
-
-
-
 }
+
+
+
+
+
+
