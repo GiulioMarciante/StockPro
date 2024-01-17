@@ -32,10 +32,12 @@ public class Product {
                 ", model='" + model + '\'' +
                 ", displayDimension=" + displayDimension +
                 ", memoryDimension=" + memoryDimension +
+                ", purchasePrice=" + purchasePrice +
                 ", salesPrice=" + salesPrice +
                 ", description=" + description +
                 '}';
     }
+    //TODO: purchase price da togliere se non si riesce a nascondere
 
     public int getId() {
         return id;
