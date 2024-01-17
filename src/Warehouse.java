@@ -129,12 +129,14 @@ public class Warehouse {
         if ("Notebook".equalsIgnoreCase(type) || "Smartphone".equalsIgnoreCase(type) || "Tablet".equalsIgnoreCase(type)) {
             ProductTypes productTypes = ProductTypes.fromString(type);
 
-            if (description != null) {
+            if (!description.equals("")) {
                 Product product = new ProductBuilder(productTypes, brand, model, displayDimension, memoryDimension, purchasePrice, salesPrice).description(description).build();
 
                 productList.add(product);
             } else {
-                Product product = new ProductBuilder(productTypes, brand, model, displayDimension, memoryDimension, purchasePrice, salesPrice).build();
+                Product product = new ProductBuilder(productTypes, brand, model, displayDimension, memoryDimension, purchasePrice, salesPrice)
+                        .description("Descrizione non inserita")
+                        .build();
 
                 productList.add(product);
             }

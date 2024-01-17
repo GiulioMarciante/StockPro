@@ -33,6 +33,7 @@ public class Product {
                 ", displayDimension=" + displayDimension +
                 ", memoryDimension=" + memoryDimension +
                 ", salesPrice=" + salesPrice +
+                ", description=" + description +
                 '}';
     }
 

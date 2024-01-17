@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7155a5e-92b7-4057-b55f-d2667d7fd195" name="Changes" comment="Risolto i problemi per il merge del Branch di Simone">
+    <list default="true" id="a7155a5e-92b7-4057-b55f-d2667d7fd195" name="Changes" comment="test additems function">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DemoItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DemoItems.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MenuManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MenuManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Warehouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Warehouse.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -110,7 +108,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702859110692</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="test additems function">
+      <option name="closed" value="true" />
+      <created>1705492289631</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1705492289631</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -138,6 +144,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Risolto i problemi per il merge del Branch di Simone" />
-    <option name="LAST_COMMIT_MESSAGE" value="Risolto i problemi per il merge del Branch di Simone" />
+    <MESSAGE value="test additems function" />
+    <option name="LAST_COMMIT_MESSAGE" value="test additems function" />
   </component>
 </project>

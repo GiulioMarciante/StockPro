@@ -3,6 +3,7 @@ import java.util.Scanner;
 public abstract class MenuManager implements Runnable {
     Warehouse warehouse = new Warehouse();
     CartManager cartManager = new CartManager();
+
     @Override
     public void run() {
         Scanner scanner = new Scanner(System.in);
@@ -43,7 +44,7 @@ public abstract class MenuManager implements Runnable {
                     System.out.println("Inserisci la descrizione del prodotto.(La descrizione è facoltativa, se non si vuole inserire premere solo invio)");
                     String description = scanner.nextLine();
                     insertItem(type, brand, model, display, memory, purPrice, selPrice, description);
-                    System.out.println("Il prodotto è stato aggiunto al carrello! Arrivederci");
+
                     break;
                 case 3:
                     System.out.println("Inserisci il prezzo da cercare nel magazzino");
@@ -63,6 +64,7 @@ public abstract class MenuManager implements Runnable {
         }
 
     }
+
     public void checkFullItemList() {
         if (warehouse.productList.isEmpty()) {
             System.out.println("Il magazzino è vuoto");
@@ -70,17 +72,25 @@ public abstract class MenuManager implements Runnable {
             warehouse.itemsList().forEach(System.out::println);
         }
     }
-    public void insertItem(String type,String brand,String model,Double display,Double memory,Double purPrice,Double selPrice,String description){
-    if ("Notebook".equalsIgnoreCase(type) || "Smartphone".equalsIgnoreCase(type) || "Tablet".equalsIgnoreCase(type)){
-        warehouse.addItem(type, brand,model,display, memory, purPrice, selPrice, description);
+
+    public void insertItem(String type, String brand, String model, Double display, Double memory, Double purPrice, Double selPrice, String description) {
+        if ("Notebook".equalsIgnoreCase(type) || "Smartphone".equalsIgnoreCase(type) || "Tablet".equalsIgnoreCase(type)) {
+            warehouse.addItem(type, brand, model, display, memory, purPrice, selPrice, description);
+            System.out.println();
+            System.out.println("Il prodotto è stato aggiunto al carrello! Arrivederci");
+            System.out.println();
+            System.out.println();
         } else {
-        System.out.println("Questo tipo di prodotto non esiste, è possibile aggiungere solo uno dei seguenti tipi:(Notebook, Smartphone, Tablet)");
+            System.out.println("Inserimento non riuscito");
+            System.out.println("Questo tipo di prodotto non esiste, è possibile aggiungere solo uno dei seguenti tipi:(Notebook, Smartphone, Tablet)");
+        }
     }
-    }
-    public void searchByPurchasePrice(double purchasePrice){
+
+    public void searchByPurchasePrice(double purchasePrice) {
 
     }
-    public void  searchAverageExpense(){
+
+    public void searchAverageExpense() {
 
     }
 }
