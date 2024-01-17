@@ -1,20 +1,20 @@
 import java.util.Scanner;
 
-public abstract class MenuManager implements Runnable {
+public abstract class MenuManager implements Runnable{
+    Warehouse warehouse = new Warehouse();
     @Override
     public void run() {
         Scanner scanner = new Scanner(System.in);
-
         String id;
-        System.out.println("Inserisci il ID");
+        System.out.println("Inserisci il tuo ID");
         id = scanner.next();
 
         int intInput;
 
         do {
 
-            System.out.println ("Ciao " + id + ", che ricerca vuoi effettuare?");
-            System.out.println("1.Controlla prodotti presenti nel Magazzino");
+            System.out.println ("Ciao " + id + ", che operazione vuoi effettuare?");
+            System.out.println("1.Controlla prodotti presenti nel magazzino");
             System.out.println("2.Ricerca per costo di acquisto");
             System.out.println("3.Ricerca spesa media per tipo di prodotto");
             System.out.println("4.Inserisci nuovo prodotto");
@@ -47,11 +47,14 @@ public abstract class MenuManager implements Runnable {
         } while (intInput != 5);
         scanner.close ();
     }
-    }
     public void checkFullItemListManager(){}
     public void checkPurchasePrice(Double inputPurchaisePrice){}
-    public void  checkAveragePriceType(String inputType){
-    DeviceTypes deviceTypes = 
+    public void checkAveragePriceType(String inputStringType){
+        try {
+            ProductTypes inputType = ProductTypes.valueOf(inputStringType.toUpperCase());
+        }catch (Exception e){
+            System.out.println("Il tipo di prodotto non è contenuto nel magazzino");
+        }
     }
     public void addProduct(){}
 }

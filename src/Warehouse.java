@@ -8,11 +8,9 @@ public class Warehouse {
     private static DemoItems demoItems = new DemoItems();
     static List<Product> productList = demoItems.getDeviceList();
 
-
     public List<Product> itemsList() {
         return new ArrayList<>(productList);
     }
-
     public List<Product> searchDeviceType(ProductTypes type) {
         boolean foundDevice = false;
         List<Product> searchProductTypeList = new ArrayList<>();
@@ -32,7 +30,6 @@ public class Warehouse {
         }
         return searchProductTypeList;
     }
-
     public List<Product> searchDeviceBrand(String brand) {
         List<Product> searchBrandResult = new ArrayList<>();
         String brandLowerCase = brand.toLowerCase();
@@ -43,7 +40,6 @@ public class Warehouse {
         }
         return searchBrandResult;
     }
-
     public List<Product> searchDeviceModel(String model) {
         List<Product> searchModelResult = new ArrayList<>();
         String modelLowerCase = model.toLowerCase();
@@ -55,12 +51,10 @@ public class Warehouse {
         return searchModelResult;
 
     }
-
     public List<Product> calculateAverage(String type) {
 
         List<Product> typePrices = new ArrayList<>();
         double total = 0.0;
-
 
         for (Product product : productList) {
             if (product.getType().name().equals(type.toUpperCase())) {
@@ -81,7 +75,6 @@ public class Warehouse {
         }
         return typePrices;
     }
-
     public List<Product> searchForPurchasePrice(double input) {
 
         ArrayList<Product> result = new ArrayList<>();
@@ -93,7 +86,6 @@ public class Warehouse {
         }
         return result;
     }
-
     public List<Product> searchForSalesPrice(double input) {
 
         ArrayList<Product> result = new ArrayList<>();
@@ -105,7 +97,6 @@ public class Warehouse {
         }
         return result;
     }
-
     public List<Product> searchForRange(double minInput, double maxInput) {
 
         List<Product> result = new ArrayList<>();
@@ -123,7 +114,6 @@ public class Warehouse {
         }
         return result;
     }
-
     public void addItem(String type, String brand, String model, Double displayDimension, Double memoryDimension, Double purchasePrice, Double salesPrice) {
 
         if ("Notebook".equalsIgnoreCase(type) || "Smartphone".equalsIgnoreCase(type) || "Tablet".equalsIgnoreCase(type)) {
@@ -135,7 +125,4 @@ public class Warehouse {
             System.out.println("Tipo errato.");
         }
     }
-
-
-
 }
