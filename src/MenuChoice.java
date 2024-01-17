@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class MenuChoice {
     public static void mainChoice() {
 
-        MenuUsers user = new MenuUsers () {};
+        MenuUsers user = new MenuUsers() {};
         MenuManager menuManager = new MenuManager () {};
 
         Scanner scanner = new Scanner(System.in);
