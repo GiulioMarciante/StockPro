@@ -1,6 +1,6 @@
-public class Tablet extends Device {
+public class Tablet extends Product {
 
-    Tablet(BuilderDevice builder) {
+    Tablet(ProductBuilder builder) {
         super(builder);
     }
 }

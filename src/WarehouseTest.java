@@ -25,8 +25,33 @@ class WarehouseTest {
     void checkIfSearchForPurchasePriceInputIsNegative(){
         double input = -1.0;
 
-        List<Device> result = warehouse.searchForPurchasePrice(input);
+        List<Product> result = warehouse.searchForPurchasePrice(input);
 
         Assertions.assertEquals(result, Collections.emptyList());
     }
+    @Test
+    void checkIfSearchForRangeGoesErrorWithOneInputNull(){
+        Double input1 = null;
+        Double input2 = 344.00;
+
+        Assertions.assertThrows (NullPointerException.class,()->warehouse.searchForRange (input1,input2));
+
+    }
+
+    @Test
+    void checkIfSearchForRangeGoesErrorWithSecondInputNull(){
+        Double input1 = 422.00;
+        Double input2 = null;
+
+        Assertions.assertThrows (NullPointerException.class,()->warehouse.searchForRange (input1,input2));
+    }
+
+    @Test
+    void checkIfSearchForRangeGoesErrorWithTwoInputNull(){
+        Double input1 = null;
+        Double input2 = null;
+
+        Assertions.assertThrows (NullPointerException.class,()->warehouse.searchForRange (input1,input2));
+    }
+
 }

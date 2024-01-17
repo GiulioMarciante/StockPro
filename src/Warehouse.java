@@ -3,89 +3,68 @@ import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class Warehouse {
     private static DemoItems demoItems = new DemoItems();
-    static List<Device> deviceList = demoItems.getDeviceList();
+    static List<Product> productList = demoItems.getDeviceList();
 
 
-    public List<Device> itemsList() {
-        List<Device> fullDeviceList = new ArrayList<>();
-        if (!deviceList.isEmpty()) {
-            fullDeviceList.addAll(deviceList);
-
-        } else {
-            System.out.println("Il magazzino è vuoto");
-        }
-        return fullDeviceList;
+    public List<Product> itemsList() {
+        return new ArrayList<>(productList);
     }
 
-    public List<Device> searchDeviceType(DeviceTypes type) {
+    public List<Product> searchDeviceType(ProductTypes type) {
         boolean foundDevice = false;
-        List<Device> searchDeviceTypeList = new ArrayList<>();
+        List<Product> searchProductTypeList = new ArrayList<>();
 
-        for (Device device : deviceList) {
+        for (Product product : productList) {
             switch (type) {
                 case TABLET:
                 case NOTEBOOK:
                 case SMARTPHONE:
-                    if (device.getType().equals(type)) {
-                        searchDeviceTypeList.add(device);
-                        foundDevice = true;
+                    if (product.getType().equals(type)) {
+                        searchProductTypeList.add(product);
                     }
                     break;
                 default:
                     break;
             }
         }
-        if (!foundDevice) {
-            System.out.println("Non ci sono prodotti con queste caratteristiche al momento in magazzino");
-        }
-        return searchDeviceTypeList;
+        return searchProductTypeList;
     }
 
-    public List<Device> searchDeviceBrand(String brand) {
-        List<Device> searchBrandResult = new ArrayList<>();
+    public List<Product> searchDeviceBrand(String brand) {
+        List<Product> searchBrandResult = new ArrayList<>();
         String brandLowerCase = brand.toLowerCase();
-        for (Device device : deviceList) {
-            if (device.getBrand().toLowerCase().equals(brandLowerCase)) {
-                searchBrandResult.add(device);
+        for (Product product : productList) {
+            if (product.getBrand().toLowerCase().equals(brandLowerCase)) {
+                searchBrandResult.add(product);
             }
-        }
-        if (searchBrandResult.isEmpty()) {
-            System.out.println("Non ci sono prodotti con queste caratteristiche al momento in magazzino");
         }
         return searchBrandResult;
     }
 
-    public List<Device> searchDeviceModel(String model) {
-        List<Device> searchModelResult = new ArrayList<>();
+    public List<Product> searchDeviceModel(String model) {
+        List<Product> searchModelResult = new ArrayList<>();
         String modelLowerCase = model.toLowerCase();
-        for (Device device : deviceList) {
-            if (device.getModel().toLowerCase().equals(modelLowerCase)) {
-                searchModelResult.add(device);
-                System.out.println("\nPer aggiungere questo prodotto nel carrello selezionare: " + device.getId());
+        for (Product product : productList) {
+            if (product.getModel().toLowerCase().equals(modelLowerCase)) {
+                searchModelResult.add(product);
             }
-        }
-        if (searchModelResult.isEmpty()) {
-            System.out.println("Non ci sono prodotti con queste caratteristiche al momento in magazzino");
-
         }
         return searchModelResult;
 
     }
 
-    public List<Device> calculateAverage(String type) {
+    public List<Product> calculateAverage(String type) {
 
-        List<Device> typePrices = new ArrayList<>();
+        List<Product> typePrices = new ArrayList<>();
         double total = 0.0;
 
+        for (Product product : productList) {
+            if (product.getType().name().equals(type.toUpperCase())) {
 
-        for (Device device : deviceList) {
-            if (device.getType().name().equals(type.toUpperCase())) {
-
-                typePrices.add(device);
-                total += device.getPurchasePrice();
+                typePrices.add(product);
+                total += product.getPurchasePrice();
 
             }
         }
@@ -101,65 +80,68 @@ public class Warehouse {
         return typePrices;
     }
 
-    public List<Device> searchForPurchasePrice(double input) {
+    public List<Product> searchForPurchasePrice(double input) {
 
-        ArrayList<Device> result = new ArrayList<>();
+        ArrayList<Product> result = new ArrayList<>();
 
-        for (Device device : deviceList) {
-            if (device.getPurchasePrice() <= input) {
-                result.add(device);
+        for (Product product : productList) {
+            if (product.getPurchasePrice() <= input) {
+                result.add(product);
             }
-        }
-        if (result.isEmpty()) {
-            System.out.println("Nessun dispositivo trovato con questa corrispondenza");
         }
         return result;
     }
 
-    public List<Device> searchForSalesPrice(double input) {
+    public List<Product> searchForSalesPrice(double input) {
 
-        ArrayList<Device> result = new ArrayList<>();
+        ArrayList<Product> result = new ArrayList<>();
 
-        for (Device device : deviceList) {
-            if (device.getSalesPrice() <= input) {
-                result.add(device);
+        for (Product product : productList) {
+            if (product.getSalesPrice() <= input) {
+                result.add(product);
             }
-        }
-        if (result.isEmpty()) {
-            System.out.println("Nessun dispositivo trovato con questa corrispondenza");
         }
         return result;
     }
 
-    public List<Device> searchForRange(double minInput, double maxInput) {
+    public List<Product> searchForRange(double minInput, double maxInput) {
 
-        List<Device> result = new ArrayList<>();
+        List<Product> result = new ArrayList<>();
 
-        for (Device device : deviceList) {
-            if (device.getSalesPrice() >= minInput && device.getSalesPrice() <= maxInput) {
-                result.add(device);
+        for (Product product : productList) {
+            if (minInput > maxInput) {
+                if (product.getSalesPrice() >= maxInput && product.getSalesPrice() <= minInput) {
+                    result.add(product);
+                }
+            } else {
+                if (product.getSalesPrice() >= minInput && product.getSalesPrice() <= maxInput) {
+                    result.add(product);
+                }
             }
-        }
-        if (result.isEmpty()) {
-            System.out.println("Nessun dispositivo trovato con questa corrispondenza");
         }
         return result;
     }
 
-    public List<Device> addItem(String type, int id, String brand, String model, Double displayDimension, Double memoryDimension, Double purchasePrice, Double salesPrice) {
-
-
+    public void addItem(String type, String brand, String model, Double displayDimension, Double memoryDimension, Double purchasePrice, Double salesPrice, String description) {
         if ("Notebook".equalsIgnoreCase(type) || "Smartphone".equalsIgnoreCase(type) || "Tablet".equalsIgnoreCase(type)) {
-            DeviceTypes deviceTypes = DeviceTypes.fromString(type);
-            BuilderDevice builder = new BuilderDevice(deviceTypes, id, brand, model, displayDimension, memoryDimension, purchasePrice, salesPrice);
-            Device item = builder.build();
+            ProductTypes productTypes = ProductTypes.fromString(type);
 
+            if (!description.equals("")) {
+                Product product = new ProductBuilder(productTypes, brand, model, displayDimension, memoryDimension, purchasePrice, salesPrice).description(description).build();
 
-            deviceList.add(item);
-        } else {
-            System.out.println("Tipo errato.");
+                productList.add(product);
+            } else {
+                Product product = new ProductBuilder(productTypes, brand, model, displayDimension, memoryDimension, purchasePrice, salesPrice)
+                        .description("Descrizione non inserita")
+                        .build();
+                productList.add(product);
+            }
         }
-
-        return deviceList;
     }
 }
+
+
+
+
+
+
