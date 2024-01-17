@@ -168,10 +168,7 @@ public abstract class MenuUsers implements Runnable {
                 "L'id inserito non è esistente\n";
 
         System.out.println(message + "\nCarrello attuale:\n");
-        updatedCart.forEach(product -> {
-            System.out.println(product);
-            System.out.println();
-        });
+        updatedCart.forEach(product -> System.out.println(product + "\n"));
     }
 
     public void removeToCart(int idToRemove) {
