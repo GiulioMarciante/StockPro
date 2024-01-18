@@ -9,7 +9,7 @@ public class CartManager {
     static List<Product> productToCart = Warehouse.productList;
     static Cart cart = new Cart();
 
-    public void intoCart(int id) {
+    public List<Product> intoCart(int id) {
 
         Iterator<Product> iterator = productToCart.listIterator();
         while (iterator.hasNext()) {
@@ -19,9 +19,11 @@ public class CartManager {
                 iterator.remove();
                 break;
             }
+
         }
+        return cart.userCart;
     }
-    public void outOfCart(int id){
+    public List<Product> outOfCart(int id){
 
         Iterator<Product> iterator = cart.userCart.iterator();
         while (iterator.hasNext()) {
@@ -32,6 +34,7 @@ public class CartManager {
                 break;
             }
         }
+        return cart.userCart;
     }
 
     public BigDecimal totalCart() {
@@ -42,7 +45,8 @@ public class CartManager {
         return BigDecimal.valueOf(total).setScale(2, RoundingMode.HALF_EVEN);
     }
 
-    public void completePurchase(){
+    public List<Product> completePurchase(){
         cart.userCart.clear();
+        return cart.userCart;
     }
 }

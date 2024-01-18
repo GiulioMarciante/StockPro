@@ -1,3 +1,4 @@
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Scanner;
 
@@ -5,6 +6,8 @@ public abstract class MenuUsers implements Runnable {
 
     Warehouse warehouse = new Warehouse();
     CartManager cartManager = new CartManager();
+
+    Cart cart = new Cart();
 
     @Override
     public void run() {
@@ -16,6 +19,7 @@ public abstract class MenuUsers implements Runnable {
         nome = scanner.next();
 
         int intInput;
+        boolean continueLoop = true;
 
         do {
 
@@ -76,16 +80,20 @@ public abstract class MenuUsers implements Runnable {
                     removeToCart(idToRemove);
                     break;
                 case 9:
-                    cartManager.completePurchase();
+                    if(!cart.userCart.isEmpty()) {
+                        continueLoop = false;
+                    }
+                    completeCheckout();
                     break;
                 case 10:
                     System.out.println("Arrivederci " + nome);
+                    continueLoop = false;
                     break;
                 default:
                     System.out.println("Opzione non valida. Riprova.");
                     break;
             }
-        } while ((intInput != 9) && (intInput != 10));
+        } while (continueLoop);
         scanner.close();
     }
 
@@ -156,12 +164,39 @@ public abstract class MenuUsers implements Runnable {
     }
 
     public void putInCart(int idToPut) {
+        int initialCartSize = cart.userCart.size();
+        List<Product> updatedCart = cartManager.intoCart(idToPut);
+        int finalCartSize = cart.userCart.size();
 
+        String message = (finalCartSize > initialCartSize) ?
+                "Il prodotto è stato inserito correttamente nel carrello\n" :
+                "L'id inserito non è esistente o è già presente nel carrello\n";
+
+        System.out.println(message + "\nCarrello attuale:\n");
+        updatedCart.forEach(product -> System.out.println(product + "\n"));
     }
 
     public void removeToCart(int idToRemove) {
+        int initialCartSize = cart.userCart.size();
+        List<Product> updatedCart = cartManager.outOfCart(idToRemove);
+        int finalCartSize = cart.userCart.size();
 
+        String message = (finalCartSize < initialCartSize) ?
+                "Il prodotto è stato rimosso correttamente dal carrello\n" :
+                "L'id inserito non è esistente o non è presente nel carrello\n";
+
+        System.out.println(message + "\nCarrello attuale:\n");
+        updatedCart.forEach(product -> System.out.println(product + "\n"));
     }
 
-
+    public void completeCheckout() {
+        BigDecimal totalCart = cartManager.totalCart();
+        if(!cart.userCart.isEmpty()) {
+            System.out.println("Prezzo totale:\n" + totalCart);
+            cartManager.completePurchase();
+            System.out.println("Grazie dell'acquisto, arrivederci!");
+        } else {
+            System.out.println("Il carrello non contiene alcun prodotto, impossibile completare l'acquisto\n");
+        }
+    }
 }
