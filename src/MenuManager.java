@@ -102,17 +102,16 @@ public abstract class MenuManager implements Runnable {
     }
     public void insertItem(String type, String brand, String model, Double display, Double memory, Double purPrice, Double selPrice, String description) {
         String inputType = type.toUpperCase();
-        if (Arrays.asList(ProductTypes.values()).contains(inputType)) {
+        if (Arrays.asList(ProductTypes.values()).toString().contains(inputType)) {
             ProductTypes productTypes = ProductTypes.fromString(type);
             warehouse.addItem(productTypes, brand, model, display, memory, purPrice, selPrice, description);
             System.out.println();
-            System.out.println("Il prodotto è stato aggiunto al carrello! Arrivederci");
+            System.out.println("Il prodotto è stato aggiunto al magazzino! Arrivederci");
             System.out.println();
         } else {
             System.out.println("Inserimento non riuscito");
             System.out.println("Questo tipo di prodotto non esiste, è possibile aggiungere solo uno dei seguenti tipi:");
             System.out.println(java.util.Arrays.asList(ProductTypes.values()));
         }
-        //TODO: controllare che funzioni l'if dell'additem
     }
 }

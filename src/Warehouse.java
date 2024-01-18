@@ -12,8 +12,8 @@ public class Warehouse {
         return new ArrayList<>(productList);
     }
 
-//    public List<Product>itemsListNoPurchasePrice(){
-//        List<Product> productListNoPurchasePrice = itemsList().remove()
+//    public List<Product>itemsListWithPurchasePrice(){
+//        List<Product> productListNoPurchasePrice = itemsList().add();
 //    }
 
     public List<Product> searchDeviceType(ProductTypes type) {

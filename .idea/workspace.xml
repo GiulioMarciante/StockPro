@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7155a5e-92b7-4057-b55f-d2667d7fd195" name="Changes" comment="Committato file workspace.xml">
+    <list default="true" id="a7155a5e-92b7-4057-b55f-d2667d7fd195" name="Changes" comment="Finito menu manager, da sistemare addtocart e la lista item (vedi i TODO)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DemoItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DemoItems.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MenuChoice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MenuChoice.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MenuManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MenuManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MenuUsers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MenuUsers.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Product.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Warehouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Warehouse.java" afterDir="false" />
     </list>
@@ -124,7 +124,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705503316719</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Finito menu manager, da sistemare addtocart e la lista item (vedi i TODO)">
+      <option name="closed" value="true" />
+      <created>1705516217138</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1705516217138</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -155,6 +163,7 @@
     <MESSAGE value="Salvataggio pre update (che so creerá problemi)" />
     <MESSAGE value="Committato file uiDesigner.xml" />
     <MESSAGE value="Committato file workspace.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Committato file workspace.xml" />
+    <MESSAGE value="Finito menu manager, da sistemare addtocart e la lista item (vedi i TODO)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finito menu manager, da sistemare addtocart e la lista item (vedi i TODO)" />
   </component>
 </project>

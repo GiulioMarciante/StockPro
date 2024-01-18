@@ -14,7 +14,7 @@ public class DemoItems {
 
     private List<Product> productList = demoItems();
 
-    public List<Product> demoItems(){
+    private List<Product> demoItems(){
         List<Product> productList = new ArrayList<>();
         productList.add(product1);
         productList.add(product2);
