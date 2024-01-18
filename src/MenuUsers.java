@@ -80,7 +80,7 @@ public abstract class MenuUsers implements Runnable {
                     removeToCart(idToRemove);
                     break;
                 case 9:
-                    if(!cart.userCart.isEmpty()) {
+                    if (!cart.userCart.isEmpty()) {
                         continueLoop = false;
                     }
                     completeCheckout();
@@ -175,7 +175,8 @@ public abstract class MenuUsers implements Runnable {
                 "L'id inserito non è esistente o è già presente nel carrello\n";
 
         System.out.println(message + "\nCarrello attuale:\n");
-        updatedCart.forEach(product -> System.out.println(product + "\n"));
+        updatedCart.forEach(product -> System.out.println(product.toStringUserList() + "\n"));
+
     }
 
     public void removeToCart(int idToRemove) {
@@ -188,12 +189,13 @@ public abstract class MenuUsers implements Runnable {
                 "L'id inserito non è esistente o non è presente nel carrello\n";
 
         System.out.println(message + "\nCarrello attuale:\n");
-        updatedCart.forEach(product -> System.out.println(product + "\n"));
+        updatedCart.forEach(product -> System.out.println(product.toStringUserList() + "\n"));
+
     }
 
     public void completeCheckout() {
         BigDecimal totalCart = cartManager.totalCart();
-        if(!cart.userCart.isEmpty()) {
+        if (!cart.userCart.isEmpty()) {
             System.out.println("Prezzo totale:\n" + totalCart);
             cartManager.completePurchase();
             System.out.println("Grazie dell'acquisto, arrivederci!");

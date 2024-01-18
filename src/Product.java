@@ -37,6 +37,7 @@ public class Product {
                 ", description=" + description +
                 '}';
     }
+
     public String toStringUserList() {
         return "Device{" +
                 "id=" + id +
@@ -49,6 +50,7 @@ public class Product {
                 ", description=" + description +
                 '}';
     }
+
     public String toStringManagerList() {
         return "Device{" +
                 "id=" + id +
@@ -62,7 +64,6 @@ public class Product {
                 ", description=" + description +
                 '}';
     }
-    //TODO: purchase price da togliere se non si riesce a nascondere
 
     public int getId() {
         return id;

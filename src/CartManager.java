@@ -2,10 +2,9 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Iterator;
 import java.util.List;
+
 public class CartManager {
-//    static DemoItems demoItems = new DemoItems();
-
-
+    //    static DemoItems demoItems = new DemoItems();
     static List<Product> productToCart = Warehouse.productList;
     static Cart cart = new Cart();
 
@@ -23,7 +22,8 @@ public class CartManager {
         }
         return cart.userCart;
     }
-    public List<Product> outOfCart(int id){
+
+    public List<Product> outOfCart(int id) {
 
         Iterator<Product> iterator = cart.userCart.iterator();
         while (iterator.hasNext()) {
@@ -39,13 +39,13 @@ public class CartManager {
 
     public BigDecimal totalCart() {
         double total = 0.0;
-        for(Product product : cart.userCart) {
+        for (Product product : cart.userCart) {
             total += product.getSalesPrice();
         }
         return BigDecimal.valueOf(total).setScale(2, RoundingMode.HALF_EVEN);
     }
 
-    public List<Product> completePurchase(){
+    public List<Product> completePurchase() {
         cart.userCart.clear();
         return cart.userCart;
     }

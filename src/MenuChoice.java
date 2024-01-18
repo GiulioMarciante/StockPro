@@ -5,9 +5,12 @@ public class MenuChoice {
     public static void mainChoice() {
         menu();
     }
-    public static void menu(){
-        MenuUsers menuUsers = new MenuUsers() {};
-        MenuManager menuManager = new MenuManager() {};
+
+    public static void menu() {
+        MenuUsers menuUsers = new MenuUsers() {
+        };
+        MenuManager menuManager = new MenuManager() {
+        };
         try {
             Scanner scanner = new Scanner(System.in);
             System.out.println("Sei utente o magazziniere?");
@@ -28,7 +31,7 @@ public class MenuChoice {
             } else if (input == 2) {
                 menuManager.run();
             }
-        }catch (InputMismatchException e){
+        } catch (InputMismatchException e) {
             System.out.println("Inserire un valore numerico valido per la scelta");
             menu();
         }

@@ -12,10 +12,6 @@ public class Warehouse {
         return new ArrayList<>(productList);
     }
 
-//    public List<Product>itemsListWithPurchasePrice(){
-//        List<Product> productListNoPurchasePrice = itemsList().add();
-//    }
-
     public List<Product> searchDeviceType(ProductTypes type) {
         boolean foundDevice = false;
         List<Product> searchProductTypeList = new ArrayList<>();
@@ -121,15 +117,15 @@ public class Warehouse {
 
     public void addItem(ProductTypes productTypes, String brand, String model, Double displayDimension, Double memoryDimension, Double purchasePrice, Double salesPrice, String description) {
 
-            if (!description.equals("")) {
-                Product product = new ProductBuilder(productTypes, brand, model, displayDimension, memoryDimension, purchasePrice, salesPrice).description(description).build();
-                productList.add(product);
-            } else {
-                Product product = new ProductBuilder(productTypes, brand, model, displayDimension, memoryDimension, purchasePrice, salesPrice)
-                        .description("Descrizione non inserita")
-                        .build();
-                productList.add(product);
-            }
+        if (!description.equals("")) {
+            Product product = new ProductBuilder(productTypes, brand, model, displayDimension, memoryDimension, purchasePrice, salesPrice).description(description).build();
+            productList.add(product);
+        } else {
+            Product product = new ProductBuilder(productTypes, brand, model, displayDimension, memoryDimension, purchasePrice, salesPrice)
+                    .description("Descrizione non inserita")
+                    .build();
+            productList.add(product);
+        }
     }
 }
 
