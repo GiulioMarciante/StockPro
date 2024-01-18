@@ -102,7 +102,8 @@ public abstract class MenuUsers implements Runnable {
         if (warehouse.productList.isEmpty()) {
             System.out.println("Il magazzino è vuoto");
         } else {
-            warehouse.itemsList().forEach(System.out::println);
+            warehouse.itemsList().stream().map(Product::toStringUserList).forEach(System.out::println);
+
         }
         //TODO: questa lista necessita di visualizzare SOLO PREZZO VENDITA (vedi to string in Product)
     }
@@ -112,7 +113,7 @@ public abstract class MenuUsers implements Runnable {
         if (searchBrandResult.isEmpty()) {
             System.out.println("Non abbiamo questo brand");
         } else {
-            searchBrandResult.forEach(System.out::println);
+            searchBrandResult.stream().map(Product::toStringUserList).forEach(System.out::println);
         }
     }
 
@@ -121,7 +122,8 @@ public abstract class MenuUsers implements Runnable {
         if (searchModelResult.isEmpty()) {
             System.out.println("Non abbiamo questo modello o scrivere correttamente rispettando gli spazi");
         } else {
-            searchModelResult.forEach(System.out::println);
+            searchModelResult.stream().map(Product::toStringUserList).forEach(System.out::println);
+
         }
     }
 
@@ -133,7 +135,8 @@ public abstract class MenuUsers implements Runnable {
             if (searchTypeResult.isEmpty()) {
                 System.out.println("Non abbiamo questo tipo di oggetto");
             } else {
-                searchTypeResult.forEach(System.out::println);
+                searchTypeResult.stream().map(Product::toStringUserList).forEach(System.out::println);
+
             }
         } catch (IllegalArgumentException e) {
             System.out.println("Tipo di dispositivo non trovato: " + inputStringType);
@@ -147,7 +150,7 @@ public abstract class MenuUsers implements Runnable {
         if (result.isEmpty()) {
             System.out.println("Nessun dispositivo con questo requisito");
         } else {
-            result.forEach(System.out::println);
+            result.stream().map(Product::toStringUserList).forEach(System.out::println);
         }
     }
 
@@ -158,8 +161,7 @@ public abstract class MenuUsers implements Runnable {
         if (result.isEmpty()) {
             System.out.println("Nessun dispositivo trovato in questo range di prezzo");
         } else {
-
-            result.forEach(System.out::println);
+            result.stream().map(Product::toStringUserList).forEach(System.out::println);
         }
     }
 

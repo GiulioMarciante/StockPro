@@ -77,7 +77,8 @@ public abstract class MenuManager implements Runnable {
         if (warehouse.productList.isEmpty()) {
             System.out.println("Il magazzino è vuoto");
         } else {
-            warehouse.itemsList().forEach(System.out::println);
+            warehouse.itemsList().stream().map(Product::toStringManagerList).forEach(System.out::println);
+
         }
     }
     public void checkPurchasePrice(double purchasePrice) {
