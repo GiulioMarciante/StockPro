@@ -1,5 +1,5 @@
 public class Product {
-    private static int nextId = 0;
+    private static int nextId = 1;
     private int id;
     private ProductTypes type;
     private String brand;
@@ -36,6 +36,7 @@ public class Product {
                 ", description=" + description +
                 '}';
     }
+    //TODO: purchase price da togliere se non si riesce a nascondere
 
     public int getId() {
         return id;

@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7155a5e-92b7-4057-b55f-d2667d7fd195" name="Changes" comment="test additems function">
+    <list default="true" id="a7155a5e-92b7-4057-b55f-d2667d7fd195" name="Changes" comment="Finito menu manager, da sistemare addtocart e la lista item (vedi i TODO)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DemoItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DemoItems.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MenuChoice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MenuChoice.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MenuManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MenuManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Product.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Warehouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Warehouse.java" afterDir="false" />
@@ -16,23 +18,23 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="GabriBranch" />
+        <entry key="$PROJECT_DIR$" value="Develope" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GithubProjectSettings">
+    <option name="branchProtectionPatterns">
+      <list>
+        <option value="Develope" />
+      </list>
+    </option>
+  </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
@@ -42,7 +44,6 @@
 }</component>
   <component name="ProjectId" id="2Zg51ABEgpwddjmH1HjgLvPlyzK" />
   <component name="ProjectLevelVcsManager">
-    <OptionsSetting value="false" id="Update" />
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -54,7 +55,7 @@
     &quot;Application.Main.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;SimoneBranch2&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;LisaBranch&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
   }
@@ -69,7 +70,6 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
@@ -108,15 +108,31 @@
       <option name="project" value="LOCAL" />
       <updated>1702859110692</updated>
     </task>
-    <task id="LOCAL-00003" summary="test additems function">
+    <task id="LOCAL-00003" summary="Committato file uiDesigner.xml">
       <option name="closed" value="true" />
-      <created>1705492289631</created>
+      <created>1705503284091</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1705492289631</updated>
+      <updated>1705503284091</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Committato file workspace.xml">
+      <option name="closed" value="true" />
+      <created>1705503316719</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1705503316719</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Finito menu manager, da sistemare addtocart e la lista item (vedi i TODO)">
+      <option name="closed" value="true" />
+      <created>1705516217138</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1705516217138</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -144,7 +160,10 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Risolto i problemi per il merge del Branch di Simone" />
-    <MESSAGE value="test additems function" />
-    <option name="LAST_COMMIT_MESSAGE" value="test additems function" />
+    <MESSAGE value="Salvataggio pre update (che so creerá problemi)" />
+    <MESSAGE value="Committato file uiDesigner.xml" />
+    <MESSAGE value="Committato file workspace.xml" />
+    <MESSAGE value="Finito menu manager, da sistemare addtocart e la lista item (vedi i TODO)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finito menu manager, da sistemare addtocart e la lista item (vedi i TODO)" />
   </component>
 </project>

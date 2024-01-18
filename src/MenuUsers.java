@@ -96,6 +96,7 @@ public abstract class MenuUsers implements Runnable {
         } else {
             warehouse.itemsList().forEach(System.out::println);
         }
+        //TODO: questa lista necessita di visualizzare SOLO PREZZO VENDITA (vedi to string in Product)
     }
 
     public void checkBrand(String brand) {
@@ -116,10 +117,10 @@ public abstract class MenuUsers implements Runnable {
         }
     }
 
-    public void checkDeviceForType(String inputType) {
+    public void checkDeviceForType(String inputStringType) {
         try {
-            ProductTypes deviceType = ProductTypes.valueOf(inputType.toUpperCase());
-            List<Product> searchTypeResult = warehouse.searchDeviceType(deviceType);
+            ProductTypes productTypes = ProductTypes.valueOf(inputStringType.toUpperCase());
+            List<Product> searchTypeResult = warehouse.searchDeviceType(productTypes);
 
             if (searchTypeResult.isEmpty()) {
                 System.out.println("Non abbiamo questo tipo di oggetto");
@@ -127,7 +128,7 @@ public abstract class MenuUsers implements Runnable {
                 searchTypeResult.forEach(System.out::println);
             }
         } catch (IllegalArgumentException e) {
-            System.out.println("Tipo di dispositivo non valido: " + inputType);
+            System.out.println("Tipo di dispositivo non trovato: " + inputStringType);
         }
     }
 
