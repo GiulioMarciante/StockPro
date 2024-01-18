@@ -11,4 +11,4 @@ public enum ProductTypes {
         }
         throw new IllegalArgumentException("Nessun enum corrispondente a " + value);
     }
-    }
+}

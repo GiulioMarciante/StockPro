@@ -16,12 +16,12 @@ public abstract class MenuManager implements Runnable {
         int intInput;
 
         do {
-            System.out.println ("Ciao " + id + ", che operazione vuoi effettuare?");
+            System.out.println("Ciao " + id + ", che operazione vuoi effettuare?");
             System.out.println("1.Controlla prodotti presenti nel magazzino");
             System.out.println("2.Ricerca per costo di acquisto");
             System.out.println("3.Ricerca costo medio di acquisto per tipo di prodotto");
             System.out.println("4.Inserisci nuovo prodotto");
-            System.out.println ("5. Esci");
+            System.out.println("5. Esci");
 
             intInput = scanner.nextInt();
 
@@ -30,15 +30,15 @@ public abstract class MenuManager implements Runnable {
                     checkFullItemListManager();
                     break;
                 case 2:
-                    System.out.println ("Scrivere il costo di acquisto da ricercare. Per i valori decimali utilizzare la virgola");
+                    System.out.println("Scrivere il costo di acquisto da ricercare. Per i valori decimali utilizzare la virgola");
                     Double inputPurchaisePrice = scanner.nextDouble();
                     checkPurchasePrice(inputPurchaisePrice);
                     break;
                 case 3:
-                    System.out.println ("Scrivere il tipo di prodotto di cui vuoi conoscere il costo medio di acquisto scegliendo tra:");
+                    System.out.println("Scrivere il tipo di prodotto di cui vuoi conoscere il costo medio di acquisto scegliendo tra:");
                     System.out.println(java.util.Arrays.asList(ProductTypes.values()));
-                    scanner.nextLine ();
-                    String inputType = scanner.nextLine ();
+                    scanner.nextLine();
+                    String inputType = scanner.nextLine();
                     checkAveragePriceType(inputType);
                     break;
                 case 4:
@@ -71,35 +71,40 @@ public abstract class MenuManager implements Runnable {
                     break;
             }
         } while (intInput != 5);
-        scanner.close ();
+        scanner.close();
     }
+
     public void checkFullItemListManager() {
         if (warehouse.productList.isEmpty()) {
             System.out.println("Il magazzino è vuoto");
         } else {
-            warehouse.itemsList().forEach(System.out::println);
+            warehouse.itemsList().stream().map(Product::toStringManagerList).forEach(System.out::println);
+
         }
     }
+
     public void checkPurchasePrice(double purchasePrice) {
         List<Product> serchPurchasePriceResult = warehouse.searchForPurchasePrice(purchasePrice);
-        if(serchPurchasePriceResult.isEmpty()){
+        if (serchPurchasePriceResult.isEmpty()) {
             System.out.println("Non é stato trovato alcun prodotto al di sotto di questo prezzo");
-        }else{
-            serchPurchasePriceResult.forEach(System.out::println);
+        } else {
+            serchPurchasePriceResult.stream().map(Product::toStringManagerList).forEach(System.out::println);
         }
     }
-    public void checkAveragePriceType(String inputStringType){
+
+    public void checkAveragePriceType(String inputStringType) {
         try {
             ProductTypes inputType = ProductTypes.valueOf(inputStringType.toUpperCase());
             List<Product> searchTypeResult = warehouse.searchDeviceType(inputType);
 
             System.out.println("Il costo medio di spesa per " + inputStringType + " é di " + warehouse.calculateAverage(inputStringType) + " e comprende:");
-            warehouse.searchDeviceType(inputType).forEach(System.out::println);
+            warehouse.searchDeviceType(inputType).stream().map(Product::toStringManagerList).forEach(System.out::println);
 
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Tipo di dispositivo non trovato: " + inputStringType);
         }
     }
+
     public void insertItem(String type, String brand, String model, Double display, Double memory, Double purPrice, Double selPrice, String description) {
         String inputType = type.toUpperCase();
         if (Arrays.asList(ProductTypes.values()).toString().contains(inputType)) {

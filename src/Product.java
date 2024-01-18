@@ -33,10 +33,37 @@ public class Product {
                 ", displayDimension=" + displayDimension +
                 ", memoryDimension=" + memoryDimension +
                 ", salesPrice=" + salesPrice +
+                ", purchasePrice=" + purchasePrice +
                 ", description=" + description +
                 '}';
     }
-    //TODO: purchase price da togliere se non si riesce a nascondere
+
+    public String toStringUserList() {
+        return "Device{" +
+                "id=" + id +
+                ", type=" + type +
+                ", brand='" + brand + '\'' +
+                ", model='" + model + '\'' +
+                ", displayDimension=" + displayDimension +
+                ", memoryDimension=" + memoryDimension +
+                ", salesPrice=" + salesPrice +
+                ", description=" + description +
+                '}';
+    }
+
+    public String toStringManagerList() {
+        return "Device{" +
+                "id=" + id +
+                ", type=" + type +
+                ", brand='" + brand + '\'' +
+                ", model='" + model + '\'' +
+                ", displayDimension=" + displayDimension +
+                ", memoryDimension=" + memoryDimension +
+                ", salesPrice=" + salesPrice +
+                ", purchasePrice=" + purchasePrice +
+                ", description=" + description +
+                '}';
+    }
 
     public int getId() {
         return id;
