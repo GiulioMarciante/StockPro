@@ -1,5 +1,5 @@
 public class Product {
-    private static int nextId = 0;
+    private static int nextId = 1;
     private int id;
     private ProductTypes type;
     private String brand;
@@ -33,6 +33,32 @@ public class Product {
                 ", displayDimension=" + displayDimension +
                 ", memoryDimension=" + memoryDimension +
                 ", salesPrice=" + salesPrice +
+                ", purchasePrice=" + purchasePrice +
+                ", description=" + description +
+                '}';
+    }
+    public String toStringUserList() {
+        return "Device{" +
+                "id=" + id +
+                ", type=" + type +
+                ", brand='" + brand + '\'' +
+                ", model='" + model + '\'' +
+                ", displayDimension=" + displayDimension +
+                ", memoryDimension=" + memoryDimension +
+                ", salesPrice=" + salesPrice +
+                ", description=" + description +
+                '}';
+    }
+    public String toStringManagerList() {
+        return "Device{" +
+                "id=" + id +
+                ", type=" + type +
+                ", brand='" + brand + '\'' +
+                ", model='" + model + '\'' +
+                ", displayDimension=" + displayDimension +
+                ", memoryDimension=" + memoryDimension +
+                ", salesPrice=" + salesPrice +
+                ", purchasePrice=" + purchasePrice +
                 ", description=" + description +
                 '}';
     }
