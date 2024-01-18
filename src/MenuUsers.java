@@ -19,6 +19,7 @@ public abstract class MenuUsers implements Runnable {
         nome = scanner.next();
 
         int intInput;
+        boolean continueLoop = true;
 
         do {
 
@@ -79,17 +80,20 @@ public abstract class MenuUsers implements Runnable {
                     removeToCart(idToRemove);
                     break;
                 case 9:
+                    if(!cart.userCart.isEmpty()) {
+                        continueLoop = false;
+                    }
                     completeCheckout();
-
                     break;
                 case 10:
                     System.out.println("Arrivederci " + nome);
+                    continueLoop = false;
                     break;
                 default:
                     System.out.println("Opzione non valida. Riprova.");
                     break;
             }
-        } while ((intInput != 9) && (intInput != 10));
+        } while (continueLoop);
         scanner.close();
     }
 
@@ -165,7 +169,7 @@ public abstract class MenuUsers implements Runnable {
 
         String message = (finalCartSize > initialCartSize) ?
                 "Il prodotto è stato inserito correttamente nel carrello\n" :
-                "L'id inserito non è esistente\n";
+                "L'id inserito non è esistente o è già presente nel carrello\n";
 
         System.out.println(message + "\nCarrello attuale:\n");
         updatedCart.forEach(product -> System.out.println(product + "\n"));
@@ -186,8 +190,12 @@ public abstract class MenuUsers implements Runnable {
 
     public void completeCheckout() {
         BigDecimal totalCart = cartManager.totalCart();
-        System.out.println("Prezzo totale:\n" + totalCart);
-        cartManager.completePurchase();
-        System.out.println("Grazie dell'acquisto, arrivederci!");
+        if(!cart.userCart.isEmpty()) {
+            System.out.println("Prezzo totale:\n" + totalCart);
+            cartManager.completePurchase();
+            System.out.println("Grazie dell'acquisto, arrivederci!");
+        } else {
+            System.out.println("Il carrello non contiene alcun prodotto, impossibile completare l'acquisto\n");
+        }
     }
 }
