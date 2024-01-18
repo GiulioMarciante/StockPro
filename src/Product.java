@@ -36,6 +36,7 @@ public class Product {
                 ", description=" + description +
                 '}';
     }
+    //TODO: purchase price da togliere se non si riesce a nascondere
 
     public int getId() {
         return id;
