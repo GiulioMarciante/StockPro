@@ -12,6 +12,10 @@ public class Warehouse {
         return new ArrayList<>(productList);
     }
 
+//    public List<Product>itemsListWithPurchasePrice(){
+//        List<Product> productListNoPurchasePrice = itemsList().add();
+//    }
+
     public List<Product> searchDeviceType(ProductTypes type) {
         boolean foundDevice = false;
         List<Product> searchProductTypeList = new ArrayList<>();
@@ -55,7 +59,7 @@ public class Warehouse {
 
     }
 
-    public List<Product> calculateAverage(String type) {
+    public BigDecimal calculateAverage(String type) {
 
         List<Product> typePrices = new ArrayList<>();
         double total = 0.0;
@@ -68,16 +72,9 @@ public class Warehouse {
 
             }
         }
-        if (!typePrices.isEmpty()) {
 
-            BigDecimal average = BigDecimal.valueOf(total / typePrices.size()).setScale(2, RoundingMode.HALF_EVEN);
-            System.out.println("La media dei prezzi d'acquisto per " + type.toUpperCase() + " è: " + average);
-            System.out.println("Hai ricercato i seguenti dispositivi: ");
-
-        } else {
-            System.out.println("Non ci sono dispositivi del tipo " + type.toUpperCase());
-        }
-        return typePrices;
+        BigDecimal average = BigDecimal.valueOf(total / typePrices.size()).setScale(2, RoundingMode.HALF_EVEN);
+        return average;
     }
 
     public List<Product> searchForPurchasePrice(double input) {
@@ -122,13 +119,10 @@ public class Warehouse {
         return result;
     }
 
-    public void addItem(String type, String brand, String model, Double displayDimension, Double memoryDimension, Double purchasePrice, Double salesPrice, String description) {
-        if ("Notebook".equalsIgnoreCase(type) || "Smartphone".equalsIgnoreCase(type) || "Tablet".equalsIgnoreCase(type)) {
-            ProductTypes productTypes = ProductTypes.fromString(type);
+    public void addItem(ProductTypes productTypes, String brand, String model, Double displayDimension, Double memoryDimension, Double purchasePrice, Double salesPrice, String description) {
 
             if (!description.equals("")) {
                 Product product = new ProductBuilder(productTypes, brand, model, displayDimension, memoryDimension, purchasePrice, salesPrice).description(description).build();
-
                 productList.add(product);
             } else {
                 Product product = new ProductBuilder(productTypes, brand, model, displayDimension, memoryDimension, purchasePrice, salesPrice)
@@ -136,7 +130,6 @@ public class Warehouse {
                         .build();
                 productList.add(product);
             }
-        }
     }
 }
 
