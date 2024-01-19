@@ -31,9 +31,10 @@ public abstract class MenuUsers implements Runnable {
             System.out.println("5.Ricerca dispositivo per prezzo di vendita");
             System.out.println("6.Ricerca dispositivo per range prezzo di vendita");
             System.out.println("7.Inserisci Item nel carrello utilizzando l'id");
-            System.out.println("8.Togli Item nel carrello utilizzando l'id");
-            System.out.println("9.Finalizza l'acquisto");
-            System.out.println("10. Esci");
+            System.out.println("8.Mostra carrello");
+            System.out.println("9.Togli Item nel carrello utilizzando l'id");
+            System.out.println("10.Finalizza l'acquisto");
+            System.out.println("11. Esci");
 
             intInput = scanner.nextInt();
 
@@ -75,17 +76,20 @@ public abstract class MenuUsers implements Runnable {
                     putInCart(idToPut);
                     break;
                 case 8:
+                    getUsersCartList();
+                    break;
+                case 9:
                     System.out.println("Seleziona l'id del prodotto che vuoi togliere dal carrello");
                     int idToRemove = scanner.nextInt();
                     removeToCart(idToRemove);
                     break;
-                case 9:
+                case 10:
                     if (!cart.userCart.isEmpty()) {
                         continueLoop = false;
                     }
                     completeCheckout();
                     break;
-                case 10:
+                case 11:
                     System.out.println("Arrivederci " + nome);
                     continueLoop = false;
                     break;
@@ -175,8 +179,18 @@ public abstract class MenuUsers implements Runnable {
                 "L'id inserito non è esistente o è già presente nel carrello\n";
 
         System.out.println(message + "\nCarrello attuale:\n");
-        updatedCart.forEach(product -> System.out.println(product.toStringUserList() + "\n"));
+        updatedCart.forEach(product -> System.out.println(product.toStringUserList()));
+        System.out.println();
 
+    }
+    public void getUsersCartList(){
+        if (cart.userCart.isEmpty()){
+            System.out.println("Non ci sono prodotti nel tuo carrello\n");
+        }else{
+            System.out.println("Questo é il tuo carrello attuale:");
+            cart.userCart.forEach(System.out::println);
+            System.out.println();
+        }
     }
 
     public void removeToCart(int idToRemove) {
