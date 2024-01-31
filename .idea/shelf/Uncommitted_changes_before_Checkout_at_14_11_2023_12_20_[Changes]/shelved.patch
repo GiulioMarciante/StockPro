@@ -1,0 +1,69 @@
+Index: src/Device.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>public class Device {\r\n    TypesDevice type;\r\n    int Id;\r\n    String Productor;\r\n    String Model;\r\n//    String Description;\r\n    Double DisplayDimension;\r\n    Double MemoryDimension;\r\n    Double PurchasePrice;\r\n    Double SalesPrice;\r\n\r\n\r\n    public Device(TypesDevice type, int Id, String Productor, String Model, Double DisplayDimension, Double MemoryDimension, Double PurchasePrice, Double SalesPrice ) {\r\n        this.type=type;\r\n        this.Id=Id;\r\n        this.Productor=Productor;\r\n        this.Model=Model;\r\n//        this.Description=Description;\r\n        this.DisplayDimension=DisplayDimension;\r\n        this.MemoryDimension=MemoryDimension;\r\n        this.PurchasePrice=PurchasePrice;\r\n        this.SalesPrice=SalesPrice;\r\n    }\r\n}\r\n
+===================================================================
+diff --git a/src/Device.java b/src/Device.java
+--- a/src/Device.java	
++++ b/src/Device.java	
+@@ -1,24 +1,13 @@
+ public class Device {
+-    TypesDevice type;
+-    int Id;
++    int id;
+     String Productor;
+     String Model;
+-//    String Description;
+-    Double DisplayDimension;
++    String Description;
++    Double DiplayDimention;
+     Double MemoryDimension;
+-    Double PurchasePrice;
++    Double PurchaisePrice;
+     Double SalesPrice;
++    public Device(int id, String Productor, String Model, String Description, Double DiplayDimention, Double MemoryDimension, Double PurchaisePrice, Double SalesPrice){
+ 
+-
+-    public Device(TypesDevice type, int Id, String Productor, String Model, Double DisplayDimension, Double MemoryDimension, Double PurchasePrice, Double SalesPrice ) {
+-        this.type=type;
+-        this.Id=Id;
+-        this.Productor=Productor;
+-        this.Model=Model;
+-//        this.Description=Description;
+-        this.DisplayDimension=DisplayDimension;
+-        this.MemoryDimension=MemoryDimension;
+-        this.PurchasePrice=PurchasePrice;
+-        this.SalesPrice=SalesPrice;
+     }
+ }
+Index: src/Cart.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>public class Cart{\r\n\r\n\r\n\r\n    }\r\n\r\n
+===================================================================
+diff --git a/src/Cart.java b/src/Cart.java
+--- a/src/Cart.java	
++++ b/src/Cart.java	
+@@ -1,6 +1,2 @@
+-public class Cart{
+-
+-
+-
+-    }
+-
++public class Cart {
++}
+Index: src/Warehouse.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>public class Warehouse{\r\n\r\n\r\n}\r\n
+===================================================================
+diff --git a/src/Warehouse.java b/src/Warehouse.java
+--- a/src/Warehouse.java	
++++ b/src/Warehouse.java	
+@@ -1,4 +1,2 @@
+-public class Warehouse{
+-
+-
++public class Warehouse {
+ }

@@ -109,7 +109,6 @@ public abstract class MenuUsers implements Runnable {
             warehouse.itemsList().stream().map(Product::toStringUserList).forEach(System.out::println);
 
         }
-        //TODO: questa lista necessita di visualizzare SOLO PREZZO VENDITA (vedi to string in Product)
     }
 
     public void checkBrand(String brand) {
