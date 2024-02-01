@@ -24,15 +24,15 @@ public abstract class MenuUsers implements Runnable {
         do {
 
             System.out.println("Ciao " + nome + ", che ricerca vuoi effettuare?");
-            System.out.println("1.Item disponibili in Magazzino");
+            System.out.println("1.Visualizza tutti i nostri prodotti");
             System.out.println("2.Ricerca dispositivo per brand");
             System.out.println("3.Ricerca dispositivo per modello");
             System.out.println("4.Ricerca dispositivo per tipo di prodotto");
             System.out.println("5.Ricerca dispositivo per prezzo di vendita");
             System.out.println("6.Ricerca dispositivo per range prezzo di vendita");
-            System.out.println("7.Inserisci Item nel carrello utilizzando l'id");
-            System.out.println("8.Mostra carrello");
-            System.out.println("9.Togli Item nel carrello utilizzando l'id");
+            System.out.println("7.Inserisci un articolo nel carrello utilizzando l'id");
+            System.out.println("8.Mostra il carrello");
+            System.out.println("9.Togli un articolo dal carrello utilizzando l'id");
             System.out.println("10.Finalizza l'acquisto");
             System.out.println("11. Esci");
 
@@ -54,19 +54,19 @@ public abstract class MenuUsers implements Runnable {
                     checkModel(model);
                     break;
                 case 4:
-                    System.out.println("Scrivere il tipo da ricercare");
+                    System.out.println("Scrivere il tipo di prodotto da ricercare");
                     String inputType = scanner.next();
                     checkDeviceForType(inputType);
                     break;
                 case 5:
-                    System.out.println("Scrivi il prezzo da cercare nel magazzino");
+                    System.out.println("Scrivi il prezzo da cercare nel magazzino. Per i valori decimali utilizzare la virgola");
                     Double salesPrice = scanner.nextDouble();
                     checkSalesPrice(salesPrice);
                     break;
                 case 6:
-                    System.out.println("Scrivi e invia il primo input per la ricerca");
+                    System.out.println("Scrivi e invia il primo valore per la ricerca. Per i valori decimali utilizzare la virgola");
                     Double inputOne = scanner.nextDouble();
-                    System.out.println("Scrivi e invia il secondo input per la ricerca");
+                    System.out.println("Scrivi e invia il secondo valore per la ricerca. Per i valori decimali utilizzare la virgola");
                     Double inputTwo = scanner.nextDouble();
                     checkForRangePrice(inputOne, inputTwo);
                     break;
@@ -109,7 +109,6 @@ public abstract class MenuUsers implements Runnable {
             warehouse.itemsList().stream().map(Product::toStringUserList).forEach(System.out::println);
 
         }
-        //TODO: questa lista necessita di visualizzare SOLO PREZZO VENDITA (vedi to string in Product)
     }
 
     public void checkBrand(String brand) {
@@ -137,13 +136,13 @@ public abstract class MenuUsers implements Runnable {
             List<Product> searchTypeResult = warehouse.searchDeviceType(productTypes);
 
             if (searchTypeResult.isEmpty()) {
-                System.out.println("Non abbiamo questo tipo di oggetto");
+                System.out.println("Non abbiamo questo tipo di prodotto");
             } else {
                 searchTypeResult.stream().map(Product::toStringUserList).forEach(System.out::println);
 
             }
         } catch (IllegalArgumentException e) {
-            System.out.println("Tipo di dispositivo non trovato: " + inputStringType);
+            System.out.println("Tipo di prodotto non trovato: " + inputStringType);
         }
     }
 
@@ -152,7 +151,7 @@ public abstract class MenuUsers implements Runnable {
         List<Product> result = warehouse.searchForSalesPrice(salesPrice);
 
         if (result.isEmpty()) {
-            System.out.println("Nessun dispositivo con questo requisito");
+            System.out.println("Nessun prodotto al di sotto di questo prezzo");
         } else {
             result.stream().map(Product::toStringUserList).forEach(System.out::println);
         }
@@ -163,7 +162,7 @@ public abstract class MenuUsers implements Runnable {
         List<Product> result = warehouse.searchForRange(inputOne, inputTwo);
 
         if (result.isEmpty()) {
-            System.out.println("Nessun dispositivo trovato in questo range di prezzo");
+            System.out.println("Nessun prodotto trovato per questo range di prezzo");
         } else {
             result.stream().map(Product::toStringUserList).forEach(System.out::println);
         }
@@ -183,12 +182,15 @@ public abstract class MenuUsers implements Runnable {
         System.out.println();
 
     }
-    public void getUsersCartList(){
-        if (cart.userCart.isEmpty()){
+
+    public void getUsersCartList() {
+        if (cart.userCart.isEmpty()) {
             System.out.println("Non ci sono prodotti nel tuo carrello\n");
-        }else{
+        } else {
             System.out.println("Questo é il tuo carrello attuale:");
+            BigDecimal totalCart = cartManager.totalCart();
             cart.userCart.forEach(System.out::println);
+            System.out.println("Questo é il tuo totale attuale: " + totalCart);
             System.out.println();
         }
     }

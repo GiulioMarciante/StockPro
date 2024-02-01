@@ -1,0 +1,23 @@
+Index: src/CartManage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/CartManage.java b/src/CartManager.java
+rename from src/CartManage.java
+rename to src/CartManager.java
+--- a/src/CartManage.java	
++++ b/src/CartManager.java	
+@@ -2,9 +2,11 @@
+ import java.util.Iterator;
+ import java.util.List;
+ 
+-public class CartManage {
++public class CartManager {
+     static List<Device> deviceToCart = Warehouse.deviceList;
+ 
++    //sistemare devicelist. Privata? Non va bene
++
+     public static void intoCart(int id) {
+         Iterator<Device> iterator = deviceToCart.listIterator();
+         while (iterator.hasNext()) {

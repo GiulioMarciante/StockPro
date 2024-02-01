@@ -4,7 +4,6 @@ import java.util.Iterator;
 import java.util.List;
 
 public class CartManager {
-    //    static DemoItems demoItems = new DemoItems();
     static List<Product> productToCart = Warehouse.productList;
     static Cart cart = new Cart();
 
