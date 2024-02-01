@@ -10,7 +10,7 @@ public abstract class MenuManager implements Runnable {
     public void run() {
         Scanner scanner = new Scanner(System.in);
         String id;
-        System.out.println("Benvenuto Manager, inserisci il tuo ID");
+        System.out.println("Benvenuto Manager, inserisci il tuo identificativo");
         id = scanner.next();
 
         int intInput;
