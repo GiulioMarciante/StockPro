@@ -2,5 +2,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cart {
-    static List<Product> userCart = new ArrayList<>();
+    public List<Product> userCart = new ArrayList<>();
+    public List<Product> getUserCartList() {
+        return userCart;
+    }
 }
