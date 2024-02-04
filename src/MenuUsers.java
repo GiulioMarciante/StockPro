@@ -6,8 +6,9 @@ public abstract class MenuUsers implements Runnable {
 
     Warehouse warehouse = new Warehouse();
     CartManager cartManager = new CartManager();
+//    Cart cart = new Cart();
 
-    Cart cart = new Cart();
+    
 
     @Override
     public void run() {
@@ -84,7 +85,7 @@ public abstract class MenuUsers implements Runnable {
                     removeToCart(idToRemove);
                     break;
                 case 10:
-                    if (!cart.userCart.isEmpty()) {
+                    if (!CartManager.finalCartList.isEmpty()) {
                         continueLoop = false;
                     }
                     completeCheckout();
@@ -103,7 +104,7 @@ public abstract class MenuUsers implements Runnable {
 
 
     public void checkFullItemList() {
-        if (warehouse.productList.isEmpty()) {
+        if (Warehouse.productList.isEmpty()) {
             System.out.println("Il magazzino è vuoto");
         } else {
             warehouse.itemsList().stream().map(Product::toStringUserList).forEach(System.out::println);
@@ -169,9 +170,9 @@ public abstract class MenuUsers implements Runnable {
     }
 
     public void putInCart(int idToPut) {
-        int initialCartSize = cart.userCart.size();
+        int initialCartSize = CartManager.finalCartList.size();
         List<Product> updatedCart = cartManager.intoCart(idToPut);
-        int finalCartSize = cart.userCart.size();
+        int finalCartSize = CartManager.finalCartList.size();
 
         String message = (finalCartSize > initialCartSize) ?
                 "Il prodotto è stato inserito correttamente nel carrello\n" :
@@ -184,21 +185,21 @@ public abstract class MenuUsers implements Runnable {
     }
 
     public void getUsersCartList() {
-        if (cart.userCart.isEmpty()) {
+        if (CartManager.finalCartList.isEmpty()) {
             System.out.println("Non ci sono prodotti nel tuo carrello\n");
         } else {
             System.out.println("Questo é il tuo carrello attuale:");
             BigDecimal totalCart = cartManager.totalCart();
-            cart.userCart.forEach(System.out::println);
+            CartManager.finalCartList.forEach(System.out::println);
             System.out.println("Questo é il tuo totale attuale: " + totalCart);
             System.out.println();
         }
     }
 
     public void removeToCart(int idToRemove) {
-        int initialCartSize = cart.userCart.size();
+        int initialCartSize = CartManager.finalCartList.size();
         List<Product> updatedCart = cartManager.outOfCart(idToRemove);
-        int finalCartSize = cart.userCart.size();
+        int finalCartSize = CartManager.finalCartList.size();
 
         String message = (finalCartSize < initialCartSize) ?
                 "Il prodotto è stato rimosso correttamente dal carrello\n" :
@@ -211,7 +212,7 @@ public abstract class MenuUsers implements Runnable {
 
     public void completeCheckout() {
         BigDecimal totalCart = cartManager.totalCart();
-        if (!cart.userCart.isEmpty()) {
+        if (!CartManager.finalCartList.isEmpty()) {
             System.out.println("Prezzo totale:\n" + totalCart);
             cartManager.completePurchase();
             System.out.println("Grazie dell'acquisto, arrivederci!");

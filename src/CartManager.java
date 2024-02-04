@@ -6,6 +6,7 @@ import java.util.List;
 public class CartManager {
     static List<Product> productToCart = Warehouse.productList;
     static Cart cart = new Cart();
+    static List<Product> finalCartList = cart.getUserCartList();
 
     public List<Product> intoCart(int id) {
 
@@ -13,18 +14,18 @@ public class CartManager {
         while (iterator.hasNext()) {
             Product product = iterator.next();
             if (id == product.getId()) {
-                cart.userCart.add(product);
+                finalCartList.add(product);
                 iterator.remove();
                 break;
             }
 
         }
-        return cart.userCart;
+        return finalCartList;
     }
 
     public List<Product> outOfCart(int id) {
 
-        Iterator<Product> iterator = cart.userCart.iterator();
+        Iterator<Product> iterator = finalCartList.iterator();
         while (iterator.hasNext()) {
             Product userCart = iterator.next();
             if (id == userCart.getId()) {
@@ -33,19 +34,19 @@ public class CartManager {
                 break;
             }
         }
-        return cart.userCart;
+        return finalCartList;
     }
 
     public BigDecimal totalCart() {
         double total = 0.0;
-        for (Product product : cart.userCart) {
+        for (Product product : finalCartList) {
             total += product.getSalesPrice();
         }
         return BigDecimal.valueOf(total).setScale(2, RoundingMode.HALF_EVEN);
     }
 
     public List<Product> completePurchase() {
-        cart.userCart.clear();
-        return cart.userCart;
+        finalCartList.clear();
+        return finalCartList;
     }
 }
